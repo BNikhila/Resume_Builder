@@ -1,0 +1,31 @@
+{
+  "name": "cs546c_group3_resale",
+  "version": "1.0.0",
+  "description": "<!-- re$ume Builder -->\r <!--About autogenerate Resumes/CoverLetter/CV -->\r ## About re$ume Builder",
+  "main": "app.js",
+  "scripts": {
+    "devStart": "nodemon app.js",
+    "start": "node app.js",
+    "seed": "node ./tasks/seed.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BNikhila/Resume_Builder.git"
+  },
+  "author": "Nikhila Benjaram, Rohith Reddy Gouni, Vinod Ankishetty, Subbareddygari Narasimha Charan Reddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://https://github.com/BNikhila/Resume_Builder/issues"
+  },
+  "homepage": "https://github.com/BNikhila/Resume_Builder#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.3",
+    "express-handlebars": "^5.3.5",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mongodb": "^4.5.0"
+  }
+}
