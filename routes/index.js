@@ -1,19 +1,22 @@
-const constructorMethod = (app) => {
-  app.use(function (req, res, next) {
-    let currenttime = new Date().toUTCString();
-    let auth = "";
-    if (req.session.username) {
-      auth = "(Authenticated User)";
-    } else {
-      auth = "(Non-Authenticated User)";
-    }
-    console.log(`[${currenttime}]: ${req.method}\t${req.originalUrl}\t${auth}`);
-    next();
-  });
+const users = require("./users");
+const resume = require("./resume");
+const cv = require("./cv");
+const coverLetter = require("./coverLetter");
 
-  app.use("*", (req, res) => {
-    res.sendStatus(404);
-  });
+module.exports = async (app) => {
+	app.use("/", (req, res) => {
+		return res.render("layouts/index");
+	});
+
+	app.use("/users", users);
+	app.use("/resume", resume);
+	app.use("/cv", cv);
+  app.use("/coverLetter", coverLetter);
+
+	app.use("/*", (req, res) => {
+		res.status(404).json({
+			status: "Error",
+			message: "Not found",
+		});
+	});
 };
-
-module.exports = constructorMethod;
