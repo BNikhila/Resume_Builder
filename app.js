@@ -17,5 +17,7 @@ hbs.registerPartials(partialsPath);
 
 configRoutes(app);
 app.listen(3000, () => {
-	console.log("Server started");
+  console.log(
+    "Resume Builder server started!\nNavigate to localhost:3000 to access the application"
+  );
 });
