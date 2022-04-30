@@ -19,14 +19,13 @@ async function create(
     email: email,
     phoneNumber: phoneNumber,
     addres: address,
-    resume:resume,
-    cv:cv,
+    resume: resume,
+    cv: cv,
     coverLetter: coverLetter,
     passwordHash: passwordHash,
-   
   };
   const insertInfo = await userCol.insertOne(newUser);
-  if (insertInfo.insertedCount === 0) throw "Could not add restaurant";
+  if (insertInfo.insertedCount === 0) throw "Could not add User";
   return "success";
 }
 
