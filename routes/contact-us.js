@@ -9,7 +9,6 @@ const ErrorMessage = require("../helper/message").ErrorMessage;
 const moment = require("moment");
 let nodemailer = require("nodemailer");
 
-router.get("/", (req, res) => {
 
 router.get('/', (req, res) => {
     return res.render("contact-us", {
