@@ -9,7 +9,7 @@
 
 ## How to install and run
 
-Follow the steps to run re$ale.
+Follow the steps to run Resume Builder.
 
 1. Fork the Project / Download the source code as a zip file
 2. Navigate to the project directory
