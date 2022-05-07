@@ -1,7 +1,7 @@
 {
-  "name": "cs546c_group3_resale",
+  "name": "CS_546_A_group1_Resume_Builder",
   "version": "1.0.0",
-  "description": "<!-- re$ale -->\r <!-- ABOUT THE PROJECT -->\r ## About re$ale",
+  "description": "<!-- Resume -->\r <!-- ABOUT THE PROJECT -->\r ## About Resume_Builder",
   "main": "app.js",
   "scripts": {
     "devStart": "nodemon app.js",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject.git"
+    "url": "git+https://github.com/BNikhila/Resume_Builder.git"
   },
-  "author": "Prithvi Punjabi, Rishikesh Yadav, Anirudh Sundararaman, Nevil Ghelani",
+  "author": "Nikhila Reddy Benjaram, Rohith Reddy Gouni, Subbareddygari Narsimha Charan, Vinod Ankishetty",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject/issues"
+    "url": "https://github.com/BNikhila/Resume_Builder/issues"
   },
   "homepage": "https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject#readme",
   "dependencies": {
