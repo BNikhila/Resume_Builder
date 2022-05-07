@@ -1,10 +1,12 @@
-# CS546_C_Team_3_Project
+# CS546_A_Team_3_Project
+
 <!-- re$ale -->
 <!-- ABOUT THE PROJECT -->
+
 ## About re$ume builder
 
-
 <!-- How to run re$ume builder -->
+
 ## How to install and run
 
 Follow the steps to run re$ale.
@@ -16,8 +18,8 @@ Follow the steps to run re$ale.
 5. Start the server (`npm start`)
 6. Navigate to `localhost: 3000`
 
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 If you have to add a feature, please fork the repo and create a pull request.
