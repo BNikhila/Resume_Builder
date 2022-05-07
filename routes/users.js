@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
 
     const user = await usersData.loginUser(username, password);
     req.session.user = user;
-    return res.json(user);
+    res.redirect("/");
   } catch (e) {
     if (typeof e == "string") {
       e = new Error(e);

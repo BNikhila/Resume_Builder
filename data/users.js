@@ -22,7 +22,6 @@ async function loginUser(username, password) {
     error.code = 403;
     throw error;
   }
-
   let isAuthenticated = false;
   try {
     isAuthenticated = await bcrypt.compare(password, user.password);
@@ -47,7 +46,6 @@ async function create(
   const userCol = await users();
   const existingUser = await userCol.findOne({ username: username });
   if (existingUser != null) {
-    console.log("1");
     throw `Username is available!`;
   }
   password = await bcrypt.hash(password, saltRounds);
