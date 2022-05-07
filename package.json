@@ -1,7 +1,7 @@
 {
-  "name": "cs546a_group1_resumebuilder",
+  "name": "cs546c_group3_resale",
   "version": "1.0.0",
-  "description": "<!-- re$ume Builder -->\r <!--About autogenerate Resumes/CoverLetter/CV -->\r ## About re$ume Builder",
+  "description": "<!-- re$ale -->\r <!-- ABOUT THE PROJECT -->\r ## About re$ale",
   "main": "app.js",
   "scripts": {
     "devStart": "nodemon app.js",
@@ -11,23 +11,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BNikhila/Resume_Builder.git"
+    "url": "git+https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject.git"
   },
-  "author": "Nikhila Benjaram, Rohith Reddy Gouni, Vinod Ankishetty, Subbareddygari Narasimha Charan Reddy",
+  "author": "Prithvi Punjabi, Rishikesh Yadav, Anirudh Sundararaman, Nevil Ghelani",
   "license": "ISC",
   "bugs": {
-    "url": "https://https://github.com/BNikhila/Resume_Builder/issues"
+    "url": "https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject/issues"
   },
-  "homepage": "https://github.com/BNikhila/Resume_Builder#readme",
+  "homepage": "https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject#readme",
   "dependencies": {
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
+    "email-validator": "^2.0.4",
     "express": "^4.18.1",
     "express-handlebars": "^5.3.5",
     "express-session": "^1.17.2",
-    "handlebars": "^4.7.7",
+    "fs": "^0.0.1-security",
     "hbs": "^4.2.0",
+    "moment": "^2.29.3",
     "mongodb": "^4.5.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "path": "^0.12.7",
     "xss": "^1.0.11"

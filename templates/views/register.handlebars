@@ -1,0 +1,33 @@
+
+    <div id="signup-popup" class="white-popup mfp-hidfe mt-150">
+      <div class="top-form-header">
+          <h4>Signup Form</h4>
+      </div>
+      <form action="/users/register" method="POST" novalidate="">
+            <div class="row">
+               <div class="col-12 col-md-12">
+                    <div class="group">
+                        <input type="text" name="username" id="username" required="">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Username</label>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12">
+                    <div class="group">
+                        <input type="password" name="password" id="password" required="">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Password</label>
+                    </div>
+                </div>
+               
+                <div class="col-12 col-sm-5 text-left ">
+                    <button type="submit" id="reg_button" class="btn dream-btn">Sign Up</button>
+                </div>
+                <div class="col-12 col-sm-7 text-left">
+                    <p class="mb-0 mt-10">Already have an account? <a href="/login" >Log in</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
