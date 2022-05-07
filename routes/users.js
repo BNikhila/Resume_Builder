@@ -108,17 +108,22 @@ router.post("/users/register", async (req, res) => {
 
   try {
     const {
-
+      firstname,
+      lastname,
+      email,
+      linkedin,
+      phonenumber,
       username,
-
       password,
     } = userData;
     const newUser = await usersData.create(
-
+      firstname,
+      lastname,
+      email,
+      linkedin,
+      phonenumber,
       username,
-
       password,
-
     );
     req.session.user = newUser;
     res.redirect("/");

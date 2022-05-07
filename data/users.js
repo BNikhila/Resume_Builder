@@ -39,6 +39,11 @@ async function loginUser(username, password) {
 }
 
 async function create( 
+  firstname,
+  lastname,
+  email,
+  linkedin,
+  phonenumber,
   username,
   password,
 ) {
@@ -51,6 +56,11 @@ async function create(
   password = await bcrypt.hash(password, saltRounds);
   
   let newUser = {
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    linkedin: linkedin,
+    phonenumber: phonenumber,
     username: username.toLowerCase(),
     password: password
   };

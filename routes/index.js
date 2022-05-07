@@ -1,4 +1,6 @@
 const users = require("./users");
+const resume = require("./resumes");
+const contactUs = require("./contact-us");
 const { ErrorMessage } = require("../helper/message");
 const validator = require("../helper/validator");
 
@@ -6,11 +8,8 @@ const validator = require("../helper/validator");
 
 module.exports = async (app) => {
   app.use("/", users);
-
- 
-
-
-
+  app.use("/resume", resume);
+  app.use("/contact-us", contactUs);
   app.get("/", async (req, res) => {
     try {
       
