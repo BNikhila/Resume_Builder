@@ -1,5 +1,4 @@
 const MongoClient = require("mongodb").MongoClient;
-<<<<<<< HEAD
 const settings = {
   mongoConfig: {
     serverUrl: "mongodb://localhost:27017/",
