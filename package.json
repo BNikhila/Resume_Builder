@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/BNikhila/Resume_Builder/issues"
   },
-  "homepage": "https://github.com/prithvi-punjabi/cs546c_group3_resale_finalproject#readme",
+  "homepage": "https://github.com/BNikhila/Resume_Builder/blob/main/README.md",
   "dependencies": {
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
