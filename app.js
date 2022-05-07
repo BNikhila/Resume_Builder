@@ -53,5 +53,7 @@ app.use("/public", express.static(__dirname + "/public"));
 configMiddlewares(app);
 configRoutes(app);
 app.listen(3000, () => {
-  console.log("resume builder server started!\nNavigate to localhost:3000 to access re$resume builder");
+  console.log(
+    "resume builder server started!\nNavigate to localhost:3000 to access resume builder"
+  );
 });
