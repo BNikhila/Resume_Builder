@@ -6,8 +6,6 @@ const bcrypt = require("bcryptjs");
 const async = require("hbs/lib/async");
 const saltRounds = 16;
 
-//Important: Do not pass a hashed password to the create function, the password hashing takes place before insertion
-
 async function loginUser(username, password) {
   validate.checkNonNull(username);
   validate.checkNonNull(password);
