@@ -100,13 +100,34 @@
                     <h2 class="bold mb-0">Are you in need of a custom template?</h2>
                 </div>
                 <div class="col-lg-3 col-lg-offset-1 col-md-3 col-sm-12 text-center">
-                    <a href="contact-us.html" class="button mt-s">Talk to us now</a>
+                    <a href="/contact-us" class="button mt-s">Talk to us now</a>
                 </div>
                           
             </div>
         </div>  
     </section>
     <!-- ##### Area End ##### -->
+
+      <!-- ##### Area start ##### -->
+       {{#if user}}
+               <section class="container section-padding-0-100">
+        <div class="subscribe">
+            <div class="row align-items-center relative">
+                <div class="col-lg-5 col-lg-offset-3 col-md-9 col-xs-12">
+                    <h2 class="bold mb-0">Social Media Links</h2>
+                </div>
+                <div class="col-lg-3 col-lg-offset-1 col-md-3 col-sm-12 text-center">
+                    <a href="#" class="fa fa-linkedin">{{user.linkedin}}</a>
+                </div>
+                          
+            </div>
+        </div>  
+    </section>
+                           
+                            {{/if}}
+   
+    <!-- ##### Area End ##### -->
+
 
     <section class="demo section-padding-100 ring-bg">
         <div class="container">
@@ -176,6 +197,9 @@
                         </div>
                         <h6>Professional Resumes Trusted by Many</h6>
                         <p>We offer templates that stand out and display your details in the most professional manner</p>
+                        <div class="preview-btn-wrapper text-center">
+                            <a href="#" class="preview-demo">Coming Soon<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -187,6 +211,9 @@
                         </div>
                         <h6>Latest Modern Design, Alway Up-To-Date</h6>
                         <p>We understand that the world is ever changing and we assure you that we are never left behind</p>
+                        <div class="preview-btn-wrapper text-center">
+                            <a href="#" class="preview-demo">Coming Soon<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -198,6 +225,9 @@
                         </div>
                         <h6>Step-by-step Automated Resume Creation</h6>
                         <p>No need for prior knowledge in resume creation. With us, we guide you all the way to the end.</p>
+                        <div class="preview-btn-wrapper text-center">
+                            <a href="#" class="preview-demo">Coming Soon<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>

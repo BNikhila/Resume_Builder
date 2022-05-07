@@ -65,6 +65,7 @@ async function create(
   
     if (insertInfo.length === 0) throw new Error("Could not add a resume");
     let id = insertInfo.insertedId;
+    return newResume;
    
   }
 

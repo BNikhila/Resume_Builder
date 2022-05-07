@@ -67,7 +67,10 @@ async function create(
     let id = insertInfo.insertedId;
     return newCv;
    
+<<<<<<< Updated upstream
   
+=======
+>>>>>>> Stashed changes
   }
 
  

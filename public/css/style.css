@@ -300,7 +300,12 @@ ol {
     -webkit-animation: dreamblipper ease 4s none infinite;
             animation: dreamblipper ease 4s none infinite;
 }
-
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+    width: 20px;
+    height: 20px;
+  }
 @-webkit-keyframes dreamblipper {
     0% {
         opacity: 0;
