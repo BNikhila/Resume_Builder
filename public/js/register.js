@@ -9,6 +9,7 @@
   const email = document.getElementById("email");
   const phoneNumber = document.getElementById("phonenumber");
   const linkedin = document.getElementById("linkedin");
+  const error = document.getElementById("errmsg");
   $("input[name='phonenumber']").keyup(function () {
     console.log($(this).val().length);
     if ($(this).val().length >= 8) {
@@ -122,9 +123,11 @@
       success: function (responseMessage) {
         window.location.replace("/");
       },
-      error: function (error) {
-        const msg = JSON.parse(error.responseText).message.preventXSS();
-        $("#errmsg").html(msg).show().fadeOut(3000);
+      error: function (e) {
+        error.innerHTML = JSON.parse(
+          e.responseText
+        ).message.preventXSS();
+        error.show().fadeOut(3000);
       },
     });
   });

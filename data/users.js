@@ -41,8 +41,6 @@ async function create(
   username,
   password
 ) {
-  
-
   const userCol = await users();
   const existingUser = await userCol.findOne({ username: username });
   if (existingUser != null) {

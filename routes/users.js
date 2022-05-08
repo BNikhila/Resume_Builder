@@ -7,7 +7,6 @@ const usersData = data.users;
 const validator = require("../helper/validator");
 const { errorCode } = require("../helper/common");
 const { ErrorMessage, SuccessMessage } = require("../helper/message");
-const { checkNonNull } = require("../helper/validator");
 
 router.get("/login", (req, res) => {
   if (req.session.user) {
@@ -98,7 +97,6 @@ router.get("/users/register", async (req, res) => {
 
 router.post("/users/register", async (req, res) => {
   const userData = req.body;
-  
   try {
     const {
       firstname,
@@ -119,7 +117,7 @@ router.post("/users/register", async (req, res) => {
       password
     );
     req.session.user = newUser;
-    return res.json(user);
+    return res.json(newUser);
   } catch (e) {
     return res.status(400).json(ErrorMessage(e));
   }
