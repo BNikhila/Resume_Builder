@@ -115,6 +115,18 @@ router.post("/new", async (req, res) => {
       education_toYear,
 
       education2_field,
+
+      education2_qualification,
+      education2_school,
+      education2_fromYear,
+      education2_toYear,
+
+      education3_field,
+      education3_qualification,
+      education3_school,
+      education3_fromYear,
+      education3_toYear,
+
       education2_qualification,
       education2_school,
       education2_fromYear,
