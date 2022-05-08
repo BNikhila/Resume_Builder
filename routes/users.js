@@ -15,7 +15,7 @@ router.get("/login", (req, res) => {
   if (req.session.user) {
     return res.redirect("/");
   }
-
+  
   if (req.query != null && req.query.error != null) {
     params.error = req.query.error;
   }
