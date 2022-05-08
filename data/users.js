@@ -9,7 +9,6 @@ const saltRounds = 16;
 async function loginUser(username, password) {
   validate.checkNonNull(username);
   validate.checkNonNull(password);
-
   validate.checkString(username);
   validate.checkString(password);
 
@@ -45,7 +44,21 @@ async function create(
   username,
   password,
 ) {
-  // Input Validation by calling functions from validation.js
+  validate.checkNonNull(firstname);
+  validate.checkNonNull(lastname);
+  validate.checkNonNull(email);
+  validate.checkNonNull(phonenumber);
+  validate.checkNonNull(username);
+  validate.checkNonNull(password);
+  validate.checkString(firstname);
+  validate.checkString(lastname);
+  validate.checkString(email);
+  validate.checkString(phonenumber);
+  validate.checkString(username);
+  validate.checkString(password);
+  validate.checkEmail(email);
+  validate.checkPhoneNumber(phonenumber);
+
   const userCol = await users();
   const existingUser = await userCol.findOne({ username: username });
   if (existingUser != null) {
@@ -73,7 +86,6 @@ async function get(id) {
   validate.checkNonNull(id);
   validate.checkString(id);
   if (ObjectId.isValid(id) !== true) throw "ID is not a valid Object ID";
-
   const usercol = await users();
   const user = await usercol.findOne({ _id: ObjectId(id) });
   if (user) {
@@ -81,65 +93,51 @@ async function get(id) {
     return user;
   } else throw "Could not find user in database";
 }
-// update data
-// async function update(
-//   id,
-//   firstName,
-//   lastName,
-//   email,
-//   phoneNumber,
-//   gender,
-//   profilePicture,
-//   address,
-//   biography
-// ) {
-//   validate.checkNonNull(id);
-//   validate.checkString(id); //update validation
-//   validate.checkNonNull(firstName);
-//   validate.checkNonNull(lastName);
-//   validate.checkNonNull(email);
-//   validate.checkNonNull(phoneNumber);
-//   validate.checkNonNull(gender);
-//   validate.checkNonNull(profilePicture);
-//   validate.checkNonNull(address);
-//   validate.checkNonNull(biography);
-//   validate.checkString(firstName);
-//   validate.checkString(lastName);
-//   validate.checkString(email);
-//   validate.checkString(phoneNumber);
-//   validate.checkString(gender);
-//   validate.checkString(profilePicture);
-//   validate.checkEmail(email);
-//   validate.checkPhoneNumber(phoneNumber);
-//   validate.checkLocation(address);
-//   const userCol = await users();
 
-//   const updated_users = {
-//     firstName: firstName,
-//     lastName: lastName,
-//     email: email,
-//     phoneNumber: phoneNumber,
-//     gender: gender,
-//     profilePicture: profilePicture,
-//     address: address,
-//     biography: biography,
-//   };
+async function update(
+  id,
+  firstname,
+  lastname,
+  email,
+  linkedin,
+  phonenumber,
+  username,
+  password,
+) {
+  validate.checkNonNull(id);
+  validate.checkString(id); //update validation
+  validate.checkNonNull(firstname);
+  validate.checkNonNull(lastname);
+  validate.checkNonNull(email);
+  validate.checkNonNull(phonenumber);
+  validate.checkString(firstname);
+  validate.checkString(lastname);
+  validate.checkString(email);
+  validate.checkString(phonenumber);
+  validate.checkEmail(email);
+  validate.checkPhoneNumber(phonenumber);
+  const userCol = await users();
 
-//   const updatedone = await userCol.updateOne(
-//     { _id: ObjectId(id) },
-//     { $set: updated_users }
-//   );
+  const updated_users = {
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+    linkedin: linkedin,
+    phonenumber: phonenumber
+  };
 
-//   if (updatedone.modifiedCount == 0) {
-//     throw "No update made to profile";
-//   }
-//   let a = await this.get(id);
-//   return a;
-// }
+  const updatedone = await userCol.updateOne(
+    { _id: ObjectId(id) },
+    { $set: updated_users }
+  );
 
+  if (updatedone.modifiedCount == 0) {
+    throw "No update made to profile";
+  }
+  let a = await this.get(id);
+  return a;
+}
 
-
-// delete data
 async function remove(id) {
   validate.checkNonNull(id);
   validate.checkString(id);
@@ -160,10 +158,9 @@ async function getAll() {
   let thisUser = {};
   allusers.forEach((x) => {
     thisUser["id"] = x._id.toString();
-    fname = x.firstName;
-    lname = x.lastName;
+    fname = x.firstname;
+    lname = x.lastname;
     thisUser["name"] = fname + " " + lname;
-    thisUser["img"] = x.profilePicture;
     finalUsers.push(thisUser);
     thisUser = {};
   });

@@ -8,6 +8,9 @@ const errorCode = require("../helper/common").errorCode;
 const ErrorMessage = require("../helper/message").ErrorMessage;
 const moment = require("moment");
 let nodemailer = require("nodemailer");
+const html_to_pdf = require('html-pdf-node');
+const fs = require('fs')
+const path = require('path')
 
 router.get("/new", async (req, res) => {
   try {
@@ -33,6 +36,7 @@ router.post('/new', async (req, res) => {
     const user = req.session.user
 
     if (!user) {
+      req.flash('message','In order to create your resume, you have to log in first')
         return res.redirect('/users/login')
     }
     
@@ -89,7 +93,6 @@ router.post('/new', async (req, res) => {
          skill_name,
           skill_proficiency,
           );
-          console.log("resume", resume);
           return res.render("resume_template1", {
             user: req.session.user,
             resume: resume
@@ -108,10 +111,79 @@ router.post('/new', async (req, res) => {
 });
 
 router.get('/preview', (req, res) => {
-    return res.render("preview", {
-        user: req.session.user,
-      });
+      try {
+        return res.render("preview", {
+            user: req.session.user,
+          });
+      } catch (e) {
+        console.log(e);
+        if (typeof e == "string") {
+          e = new Error(e);
+          e.code = 400;
+        }
+        return res
+          .status(validator.isValidResponseStatusCode(e.code) ? e.code : 500)
+          .render("error", {
+            code: validator.isValidResponseStatusCode(e.code) ? e.code : 500,
+            error: e.message,
+            user: req.session.user,
+          });
+      }
 })
+
+router.get('/download', (req, res) => {
+  const user = req.session.user
+  var userId = req.query.id
+  if (user) {
+      userId = user._id
+  }
+  if (!userId) {
+      req.flash('message','In order to create your resume, you have to log in first')
+      return res.redirect('/users/login')
+  }
+  Resume.find({userId: userId}).lean()
+  .then(resumes => {
+      if (resumes) {
+          res.render('download', {
+              layout: false,
+              user: req.user,
+              resume: resumes[resumes.length-1]
+          })
+      } else {
+          // res.json({
+          //     message: 'No user found'
+          // })
+          req.flash('error', 'No resume found for the username')
+          res.redirect('/resume/new')
+      }
+  })
+})
+
+router.get('/build', (req, res) => {
+  const user = req.user
+  if (!user) {
+      req.flash('message','In order to create your resume, you have to log in first')
+      return res.redirect('/users/login')
+  }
+  Resume.find({userId: user._id}).lean()
+  .then(resumes => {
+      if (resumes) {
+          res.render('resume_template1', {
+              layout: false,
+              user: req.user,
+              resume: resumes[resumes.length-1]
+          })
+      } else {
+          // res.json({
+          //     message: 'No user found'
+          // })
+          req.flash('error', 'No resume found for the username')
+          res.redirect('/resume/new')
+      }
+  })
+  
+})
+
 
 
 module.exports = router;

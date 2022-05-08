@@ -7,21 +7,23 @@
 
             <div class="col-12 col-md-12">
                 <div class="group">
-                    <input type="text" name="username" id="lusername" oninput="removeErrorClass(this)">
+                    <input type="text" name="username" id="lusername">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label>Username</label>
+                    <span id="username-errmsg" class="error"></span>
                 </div>
             </div>
             <div class="col-12 col-md-12">
                 <div class="group">
-                    <input type="password" name="password" id="lpassword" oninput="removeErrorClass(this)">
+                    <input type="password" name="password" id="lpassword">
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <label>Password</label>
+                    <span id="password-errmsg" class="error"></span>
                 </div>
             </div>
-            
+            <span id="errmsg" class="error"></span>
             <div class="col-12 col-sm-5 text-left ">
                 <button type="submit" class="btn dream-btn">Login</button>
             </div>
@@ -31,7 +33,6 @@
         </div>
     </form>
 </div>
-
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script src="/public/js/login.js"></script>

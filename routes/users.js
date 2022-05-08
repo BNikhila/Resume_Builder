@@ -9,13 +9,10 @@ const { errorCode } = require("../helper/common");
 const { ErrorMessage, SuccessMessage } = require("../helper/message");
 const { checkNonNull } = require("../helper/validator");
 
-//Important: Do not pass a hashed password to the create function, the password hashing takes place before insertion
-
 router.get("/login", (req, res) => {
   if (req.session.user) {
     return res.redirect("/");
   }
-  
   if (req.query != null && req.query.error != null) {
     params.error = req.query.error;
   }
@@ -33,10 +30,9 @@ router.post("/login", async (req, res) => {
     validator.checkNonNull(username, password);
     validator.checkString(username, "username");
     validator.checkString(password, "password");
-
     const user = await usersData.loginUser(username, password);
     req.session.user = user;
-    res.redirect("/");
+    return res.json(user);
   } catch (e) {
     if (typeof e == "string") {
       e = new Error(e);
@@ -79,7 +75,7 @@ router.get("/user/:id", async (req, res) => {
   try {
     utils.parseObjectId(id, "User ID");
     const thisuser = await usersData.get(id);
-   
+
     return res.render("userprofile", {
       nameOfUser: thisuser.firstname + " " + thisuser.lastname,
       email: thisuser.email,
@@ -87,7 +83,7 @@ router.get("/user/:id", async (req, res) => {
       userName: thisuser.username,
       user: req.session.user,
     });
-   
+
   } catch (e) {
     return res.status(errorCode.NOT_FOUND).render("error", {
       code: errorCode.NOT_FOUND,
@@ -96,9 +92,6 @@ router.get("/user/:id", async (req, res) => {
     });
   }
 });
-
-
-//signup
 
 router.get("/users/register", async (req, res) => {
   if (!req.session.user) {
@@ -110,8 +103,20 @@ router.get("/users/register", async (req, res) => {
 
 router.post("/users/register", async (req, res) => {
   const userData = req.body;
-  //User input validation on user route by calling validation.js
-
+    validate.checkNonNull(userData.firstname);
+    validate.checkNonNull(userData.lastname);
+    validate.checkNonNull(userData.email);
+    validate.checkNonNull(userData.phonenumber);
+    validate.checkNonNull(userData.username);
+    validate.checkNonNull(userData.password);
+    validate.checkString(userData.firstname);
+    validate.checkString(userData.lastname);
+    validate.checkString(userData.email);
+    validate.checkString(userData.phonenumber);
+    validate.checkString(userData.username);
+    validate.checkString(userData.password);
+    validate.checkEmail(userData.email);
+    validate.checkPhoneNumber(userData.phonenumber);
   try {
     const {
       firstname,
@@ -132,7 +137,7 @@ router.post("/users/register", async (req, res) => {
       password,
     );
     req.session.user = newUser;
-    res.redirect("/");
+    return res.json(user);
   } catch (e) {
     return res.status(400).json(ErrorMessage(e));
   }

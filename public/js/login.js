@@ -1,47 +1,30 @@
-function removeErrorClass(element) {
-  element.classList.remove("is-invalid");
-  document.getElementById("error-div").classList.add("visually-hidden");
-  document.getElementById("usernameHelp").classList.remove("visually-hidden");
-}
 (function ($) {
-  $("#logo").on("click", function (event) {
-    $(location).attr("href", "/");
-  });
-  if ($("#loginAlert")[0].innerHTML == "") $("#loginAlert").hide();
-  const username = document.getElementById("username");
-  const password = document.getElementById("password");
-  
+  debugger;
+  const username = document.getElementById("lusername");
+  const password = document.getElementById("lpassword");
+  const error = document.getElementById("errmsg");
   const form = document.getElementById("main_login_form");
   form.addEventListener("submit", function login(event) {
+    debugger;
     event.preventDefault();
-
-    // try {
-    //   checkUsername(username.value);
-    //   document
-    //     .getElementById("usernameHelp")
-    //     .classList.remove("visually-hidden");
-    // } catch (error) {
-    //   username.classList.add("is-invalid");
-    //   username.focus();
-    //   document.getElementById("invalid-username-label").innerHTML =
-    //     error.preventXSS();
-    //   document.getElementById("usernameHelp").classList.add("visually-hidden");
-    //   isValid = false;
-    // }
-
-    // try {
-    //   checkPassword(password.value);
-    // } catch (error) {
-    //   password.classList.add("is-invalid");
-    //   password.focus();
-    //   document.getElementById("invalid-password-label").innerHTML =
-    //     error.preventXSS();
-    //   isValid = false;
-    // }
-
-    // if (!isValid) {
-    //   return;
-    // }
+    let isValid = true;
+    try {
+      checkUsername(username.value);
+    } catch (error) {
+      $("#username-errmsg").html("Username is invalid").show().fadeOut(3000);
+      document.getElementById("username-errmsg").innerHTML = error.preventXSS();
+      isValid = false;
+    }
+    try {
+      checkPassword(password.value);
+    } catch (error) {
+      $("#password-errmsg").html("Password is invalid").show().fadeOut(3000);
+      document.getElementById("password-errmsg").innerHTML = error.preventXSS();
+      isValid = false;
+    }
+    if (!isValid) {
+      return;
+    }
 
     $.ajax({
       type: "POST",
@@ -56,10 +39,11 @@ function removeErrorClass(element) {
         window.location.replace("/");
       },
       error: function (responseError) {
+        console.log(responseError);
         error.innerHTML = JSON.parse(
           responseError.responseText
         ).message.preventXSS();
-        error.classList.remove("visually-hidden");
+        error.show().fadeOut(3000);
       },
     });
   });
