@@ -55,15 +55,43 @@ router.post('/new', async (req, res) => {
     education_fromYear,
     education_toYear,
 
+    education2_field,
+    education2_qualification,
+    education2_school,
+    education2_fromYear,
+    education2_toYear,
+
+    education3_field,
+    education3_qualification,
+    education3_school,
+    education3_fromYear,
+    education3_toYear,
+
     // experiences
     experience_title,
     experience_company,
     experience_fromYear,
     experience_toYear,
 
+    experience2_title,
+    experience2_company,
+    experience2_fromYear,
+    experience2_toYear,
+
+    experience3_title,
+    experience3_company,
+    experience3_fromYear,
+    experience3_toYear,
+
     // skills
     skill_name,
     skill_proficiency,
+
+    skill2_name,
+    skill2_proficiency,
+
+    skill3_name,
+    skill3_proficiency,
   } = req.body;
 
   try {
@@ -83,15 +111,43 @@ router.post('/new', async (req, res) => {
       education_fromYear,
       education_toYear,
 
+      education2_field,
+    education2_qualification,
+    education2_school,
+    education2_fromYear,
+    education2_toYear,
+
+    education3_field,
+    education3_qualification,
+    education3_school,
+    education3_fromYear,
+    education3_toYear,
+
       // experiences
       experience_title,
       experience_company,
       experience_fromYear,
       experience_toYear,
 
+      experience2_title,
+    experience2_company,
+    experience2_fromYear,
+    experience2_toYear,
+
+    experience3_title,
+    experience3_company,
+    experience3_fromYear,
+    experience3_toYear,
+
       // skills
       skill_name,
       skill_proficiency,
+
+      skill2_name,
+    skill2_proficiency,
+
+    skill3_name,
+    skill3_proficiency,
     );
     return res.render("resume_template1", {
       user: req.session.user,

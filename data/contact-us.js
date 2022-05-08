@@ -13,8 +13,7 @@ async function create(
   message
   ) {
     // Input Validation by calling functions from validation.js
-    console.log("firstName", firstName)
-    const contactusData = {
+   const contactusData = {
       name: name,
       email: email,
       subject: subject,

@@ -11,7 +11,7 @@ let nodemailer = require("nodemailer");
 
 router.get("/new", async (req, res) => {
   try {
-    return res.render("coverLetter", {
+    return res.render("new_cover", {
         user: req.session.user,
       });
   } catch (e) {
