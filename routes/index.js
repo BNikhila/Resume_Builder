@@ -14,7 +14,7 @@ module.exports = async (app) => {
   app.get("/", async (req, res) => {
     try {
       return res.render("home", {
-        user: req.session.user 
+        user: req.session.user,
       });
     } catch (e) {
       if (typeof e == "string") {

@@ -83,7 +83,6 @@ router.get("/user/:id", async (req, res) => {
       userName: thisuser.username,
       user: req.session.user,
     });
-
   } catch (e) {
     return res.status(errorCode.NOT_FOUND).render("error", {
       code: errorCode.NOT_FOUND,
@@ -103,20 +102,20 @@ router.get("/users/register", async (req, res) => {
 
 router.post("/users/register", async (req, res) => {
   const userData = req.body;
-    validate.checkNonNull(userData.firstname);
-    validate.checkNonNull(userData.lastname);
-    validate.checkNonNull(userData.email);
-    validate.checkNonNull(userData.phonenumber);
-    validate.checkNonNull(userData.username);
-    validate.checkNonNull(userData.password);
-    validate.checkString(userData.firstname);
-    validate.checkString(userData.lastname);
-    validate.checkString(userData.email);
-    validate.checkString(userData.phonenumber);
-    validate.checkString(userData.username);
-    validate.checkString(userData.password);
-    validate.checkEmail(userData.email);
-    validate.checkPhoneNumber(userData.phonenumber);
+  validate.checkNonNull(userData.firstname);
+  validate.checkNonNull(userData.lastname);
+  validate.checkNonNull(userData.email);
+  validate.checkNonNull(userData.phonenumber);
+  validate.checkNonNull(userData.username);
+  validate.checkNonNull(userData.password);
+  validate.checkString(userData.firstname);
+  validate.checkString(userData.lastname);
+  validate.checkString(userData.email);
+  validate.checkString(userData.phonenumber);
+  validate.checkString(userData.username);
+  validate.checkString(userData.password);
+  validate.checkEmail(userData.email);
+  validate.checkPhoneNumber(userData.phonenumber);
   try {
     const {
       firstname,
@@ -134,7 +133,7 @@ router.post("/users/register", async (req, res) => {
       linkedin,
       phonenumber,
       username,
-      password,
+      password
     );
     req.session.user = newUser;
     return res.json(user);
@@ -142,7 +141,6 @@ router.post("/users/register", async (req, res) => {
     return res.status(400).json(ErrorMessage(e));
   }
 });
-
 
 //update
 // router.get("/users/update", async (req, res) => {
@@ -269,6 +267,5 @@ router.post("/users/register", async (req, res) => {
 //     //res.status(500).json({ error: e });
 //   }
 // });
-
 
 module.exports = router;

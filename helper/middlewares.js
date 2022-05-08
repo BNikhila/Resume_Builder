@@ -67,7 +67,6 @@ module.exports = async (app) => {
     next();
   });
 
-  
   // app.use("/chat", (req, res, next) => {
   //   if (!utils.isUserLoggedIn(req)) {
   //     return res.redirect(
@@ -77,5 +76,4 @@ module.exports = async (app) => {
   //   }
   //   next();
   // });
-
 };

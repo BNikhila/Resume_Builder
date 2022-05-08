@@ -9,5 +9,5 @@ module.exports = {
   resume,
   conatctus,
   coverletter,
-  cv
+  cv,
 };

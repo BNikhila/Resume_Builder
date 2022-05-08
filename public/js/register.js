@@ -32,7 +32,7 @@
     firstName.value = firstName.value.replace(/\s/g, "");
     if (firstName.value.length == 0) {
       $("#firstname-errmsg").html("First Name is empty").show().fadeOut(3000);
-      firstName.focus();  
+      firstName.focus();
       isValid = false;
     }
 
@@ -47,7 +47,10 @@
       $("#username-errmsg").html("Username is empty").show().fadeOut(3000);
       isValid = false;
     } else if (userName.value.length < 5) {
-      $("#username-errmsg").html("Username must be at least 5 characters long").show().fadeOut(3000);
+      $("#username-errmsg")
+        .html("Username must be at least 5 characters long")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     }
 
@@ -56,27 +59,46 @@
       $("#password-errmsg").html("password is empty").show().fadeOut(3000);
       isValid = false;
     } else if (password.value.length < 6) {
-      $("#password-errmsg").html("Password must be at least 6 characters long").show().fadeOut(3000);
+      $("#password-errmsg")
+        .html("Password must be at least 6 characters long")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     } else if (!isValidPassword(password.value)) {
-      $("#password-errmsg").html("Password must contain at least one upper, one lower, one special character and one number").show();
+      $("#password-errmsg")
+        .html(
+          "Password must contain at least one upper, one lower, one special character and one number"
+        )
+        .show();
       isValid = false;
     }
     email.value = email.value.replace(/\s/g, "");
     if (email.value.length == 0) {
-      $("#email-errmsg").html("Email must be at least 5 characters long").show().fadeOut(3000);
+      $("#email-errmsg")
+        .html("Email must be at least 5 characters long")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     } else if (!isEmail(email.value)) {
-      $("#email-errmsg").html("Email must be at least 5 characters long").show().fadeOut(3000);
+      $("#email-errmsg")
+        .html("Email must be at least 5 characters long")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     }
 
     phoneNumber.value = phoneNumber.value.replace(/\s/g, "");
     if (phoneNumber.value.length == 0) {
-      $("#phonenumber-errmsg").html("Phonenumber is empty").show().fadeOut(3000);
+      $("#phonenumber-errmsg")
+        .html("Phonenumber is empty")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     } else if (!checkPhoneNumber(phoneNumber.value)) {
-      $("#phonenumber-errmsg").html("Please enter a valid phone number (xxx-xxx-xxxx)").show().fadeOut(3000);
+      $("#phonenumber-errmsg")
+        .html("Please enter a valid phone number (xxx-xxx-xxxx)")
+        .show()
+        .fadeOut(3000);
       isValid = false;
     }
     if (!isValid) {
@@ -103,5 +125,5 @@
         $("#errmsg").html(msg).show().fadeOut(3000);
       },
     });
-  });   
+  });
 })(window.jQuery);

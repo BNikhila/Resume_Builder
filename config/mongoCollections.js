@@ -21,5 +21,5 @@ module.exports = {
   resume: getCollectionFn("resume"),
   contactus: getCollectionFn("contactus"),
   cv: getCollectionFn("cv"),
-  coverletter: getCollectionFn("coverletter")
+  coverletter: getCollectionFn("coverletter"),
 };

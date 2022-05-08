@@ -35,14 +35,14 @@ async function loginUser(username, password) {
   }
 }
 
-async function create( 
+async function create(
   firstname,
   lastname,
   email,
   linkedin,
   phonenumber,
   username,
-  password,
+  password
 ) {
   validate.checkNonNull(firstname);
   validate.checkNonNull(lastname);
@@ -65,7 +65,7 @@ async function create(
     throw `Username is available!`;
   }
   password = await bcrypt.hash(password, saltRounds);
-  
+
   let newUser = {
     firstname: firstname,
     lastname: lastname,
@@ -73,7 +73,7 @@ async function create(
     linkedin: linkedin,
     phonenumber: phonenumber,
     username: username.toLowerCase(),
-    password: password
+    password: password,
   };
   const insertInfo = await userCol.insertOne(newUser);
   if (insertInfo.insertedCount === 0) throw "Could not add user";
@@ -94,16 +94,7 @@ async function get(id) {
   } else throw "Could not find user in database";
 }
 
-async function update(
-  id,
-  firstname,
-  lastname,
-  email,
-  linkedin,
-  phonenumber,
-  username,
-  password,
-) {
+async function update(id, firstname, lastname, email, linkedin, phonenumber) {
   validate.checkNonNull(id);
   validate.checkString(id); //update validation
   validate.checkNonNull(firstname);
@@ -123,7 +114,7 @@ async function update(
     lastname: lastname,
     email: email,
     linkedin: linkedin,
-    phonenumber: phonenumber
+    phonenumber: phonenumber,
   };
 
   const updatedone = await userCol.updateOne(

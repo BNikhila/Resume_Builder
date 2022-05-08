@@ -46,7 +46,6 @@ module.exports = {
     if (!email.match(regex)) throw `Invalid email address`;
   },
 
-
   isValidObject(obj) {
     return typeof obj == "object" && !Array.isArray(obj);
   },
