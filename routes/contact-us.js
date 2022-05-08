@@ -20,7 +20,6 @@ router.post("/", async (req, res) => {
   if (!user) {
     return res.redirect("/login");
   }
-
   const { name, email, subject, message } = req.body;
 
   try {

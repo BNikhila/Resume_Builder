@@ -1,73 +1,77 @@
 const mongoCollections = require("../config/mongoCollections");
-const coverletterCollections = mongoCollections.coverletter;
-const userCollections = mongoCollections.users;
-const validator = require("../helper/validator");
-const utils = require("../helper/utils");
-const errorCode = require("../helper/common").errorCode;
-const userData = require("../data/users");
+const usersCol = mongoCollections.users;
+const { ObjectId } = require("mongodb");
 
 async function create(
-  firstName,
-  lastName,
-  address,
+  id,
+  fullName,
   email,
   linkedIn,
   phoneNo,
 
-  // education
-  education_field,
-  education_qualification,
-  education_school,
-  education_fromYear,
-  education_toYear,
+  managerName,
+  companyAddress,
+  companyPhone,
+  companyEmail,
+  salutation,
 
-  // experiences
-  experience_title,
-  experience_company,
-  experience_fromYear,
-  experience_toYear,
+  firstParagraph,
+  secondParagraph,
+  thirdParagraph,
+  finalParagraph,
 
-  // skills
-  skill_name,
-  skill_proficiency
 ) {
   // Input Validation by calling functions from validation.js
-  console.log("firstName", firstName);
-  const newCoverLetter = {
-    firstName: firstName,
-    lastName: lastName,
-    address: address,
+  const userColnew = await usersCol();
+  const users = await userColnew.findOne({
+    _id: ObjectId(id)
+  });
+  const newCoverletter = {
+    fullName: fullName,
     email: email,
     linkedIn: linkedIn,
     phoneNo: phoneNo,
 
     // education
-    education_field: education_field,
-    education_qualification: education_qualification,
-    education_school: education_school,
-    education_fromYear: education_fromYear,
-    education_toYear: education_toYear,
+    managerName: managerName,
+    companyAddress: companyAddress,
+    companyPhone: companyPhone,
+    companyEmail: companyEmail,
+    salutation: salutation,
 
-    // experiences
-    experience_title: experience_title,
-    experience_company: experience_company,
-    experience_fromYear: experience_fromYear,
-    experience_toYear: experience_toYear,
-
-    // skills
-    skill_name: skill_name,
-    skill_proficiency: skill_proficiency,
+    firstParagraph: firstParagraph,
+    secondParagraph: secondParagraph,
+    thirdParagraph: thirdParagraph,
+    finalParagraph: finalParagraph,
   };
 
-  const coverletterData = await coverletterCollections();
-  const users = await userCollections();
-  const insertInfo = await coverletterData.insertOne(newCoverLetter);
+  if (users === null)
+    throw `No user exists with such ${id}`
 
-  if (insertInfo.length === 0) throw new Error("Could not add a resume");
-  let id = insertInfo.insertedId;
-  return newCoverLetter;
+  const updateUsers = await userColnew.updateOne({
+    _id: ObjectId(id)
+  }, {
+    $addToSet: {
+      coverLetter: newCoverletter
+    }
+  });
+
+  if (!updateUsers.matchedCount && !updateUsers.modifiedCount) {
+    throw "failed to update Coverletter details"
+  }
+  return newCoverletter;
+}
+
+async function build(id) {
+  // Input Validation by calling functions from validation.js
+  const userColnew = await usersCol();
+  const users = await userColnew.findOne({
+    _id: ObjectId(id)
+  });
+  return users;
 }
 
 module.exports = {
   create,
+  build,
 };

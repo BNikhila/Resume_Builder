@@ -4,12 +4,15 @@
 
 	<title>{{ resume.firstName }} {{ resume.lastName }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+   
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
-	<link rel="stylesheet" type="text/css" href="/css/resume.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/public/css/resume.css" media="all" />
 
 </head>
 <body>
@@ -21,10 +24,10 @@
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>{{ resume.firstName }} {{ resume.lastName }}</h1>
-					<h2>Web Designer, Director</h2>
+					<h2>{{ resume.title }}</h2>
 				</div>
 
-				<div class="yui-u">
+				<div class="yui-u sarah">
 					<div class="contact-info">
 						<h3><a id="pdf" href="mailto:{{ resume.email }}">{{ resume.email }}</a></h3>
 						<h3><a href="{{ resume.linkedIn }}">{{ resume.linkedIn }}</a></h3>
@@ -38,7 +41,8 @@
 			<div id="yui-main">
 				<div class="yui-b">
 
-					<div class="yui-gf">
+					{{#if resume.profile}}
+						<div class="yui-gf">
 						<div class="yui-u first">
 							<h2>Profile</h2>
 						</div>
@@ -47,7 +51,8 @@
 								{{ resume.profile }} 
 							</p>
 						</div>
-					</div><!--// .yui-gf -->
+					</div>
+					{{/if}}<!--// .yui-gf -->
 
 					<div class="yui-gf">
 						<div class="yui-u first">
@@ -59,6 +64,18 @@
 								<li>{{ resume.skill.name }}</li>
 								<li>{{ resume.skill.proficiency}}</li>
 							</ul>
+							{{#if resume.skill2}}
+								<ul class="talent">
+								<li>{{ resume.skill2.name }}</li>
+								<li>{{ resume.skill2.proficiency}}</li>
+							</ul>
+							{{/if}}
+							{{#if resume.skill3}}
+								<ul class="talent">
+								<li>{{ resume.skill3.name }}</li>
+								<li>{{ resume.skill3.proficiency}}</li>
+							</ul>
+							{{/if}}
 						</div>
 					</div><!--// .yui-gf-->
 
@@ -78,6 +95,24 @@
 								<p>{{ resume.experience.info }}</p>
 							</div>
 
+							{{#if resume.experience2}}
+								<div class="job">
+								<h2>{{ resume.experience2.title }}</h2>
+								<h3>{{ resume.experience2.company }}</h3>
+								<h4>{{ resume.experience2.fromYear }}-{{ resume.experience2.toYear }}</h4>
+								<p>{{ resume.experience.2info }}</p>
+							</div>
+							{{/if}}
+
+							{{#if resume.experience3}}
+								<div class="job last">
+								<h2>{{ resume.experience3.title }}</h2>
+								<h3>{{ resume.experience3.company }}</h3>
+								<h4>{{ resume.experience3.fromYear }}-{{ resume.experience3.toYear }}</h4>
+								<p>{{ resume.experience.3info }}</p>
+							</div>
+							{{/if}}
+
 						</div><!--// .yui-u -->
 					</div><!--// .yui-gf -->
 
@@ -92,6 +127,20 @@
 							<h3>{{ resume.education.field}} &mdash; <strong>{{ resume.education.qualification }}</strong> </h3>
 							<p>From: {{ resume.education.fromYear }}-{{ resume.education.toYear }}</p>
 						</div>
+						{{#if resume.education2}}
+						<div class="yui-u sarah2">
+							<h2>{{ resume.education2.school }}</h2>
+							<h3>{{ resume.education2.field}} &mdash; <strong>{{ resume.education2.qualification }}</strong> </h3>
+							<p>From: {{ resume.education2.fromYear }}-{{ resume.education2.toYear }}</p>
+						</div>							
+						{{/if}}
+						{{#if resume.education3}}
+						<div class="yui-u sarah2">
+							<h2>{{ resume.education3.school }}</h2>
+							<h3>{{ resume.education3.field}} &mdash; <strong>{{ resume.education3.qualification }}</strong> </h3>
+							<p>From: {{ resume.education3.fromYear }}-{{ resume.education3.toYear }}</p>
+						</div>							
+						{{/if}}
 					</div><!--// .yui-gf -->
 
 
@@ -105,10 +154,26 @@
 
 	</div><!-- // inner -->
 
+	<div class="download-btn">
+		<a href="#" class="sarah-a">Download as PDF</a>
+	</div>
+
+	{{!-- <form class="download-btn" action="/resume/build" method="POST">
+		<button class="sarah-a">Download as PDF</button>
+	</form> --}}
+
 
 </div><!--// doc -->
 
 
 </body>
+<script type="text/javascript">
+    $(".download-btn").click(function () {
+        let doc = new jsPDF('p', 'pt', 'a4');
+        doc.addHTML(document.body, function () {
+            doc.save('resume.pdf');
+        });
+    });
+</script>
 </html>
 

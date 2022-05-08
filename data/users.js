@@ -7,8 +7,6 @@ const async = require("hbs/lib/async");
 const saltRounds = 16;
 
 async function loginUser(username, password) {
- 
-
   const usercol = await users();
   const user = await usercol.findOne({ username: username.toLowerCase() });
   if (user == null) {
@@ -31,7 +29,6 @@ async function loginUser(username, password) {
     return user;
   }
 }
-
 async function create(
   firstname,
   lastname,

@@ -4,7 +4,10 @@
 
 	<title>{{ cover_letter.fullName }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.0.272/jspdf.debug.js"></script>
+   
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 
@@ -73,17 +76,19 @@
 	</div><!-- // inner -->
 
 	<div class="download-btn">
-		<a href="/cover-letter/build/download" class="sarah-a">Download as PDF</a>
+		<a href="#" class="sarah-a">Download as PDF</a>
 	</div>
-
-	{{!-- <form class="download-btn" action="/resume/build" method="POST">
-		<button class="sarah-a">Download as PDF</button>
-	</form> --}}
 
 
 </div><!--// doc -->
-
-
 </body>
+<script type="text/javascript">
+    $(".download-btn").click(function () {
+        let doc = new jsPDF('p', 'pt', 'a4');
+        doc.addHTML(document.body, function () {
+            doc.save('coverletter.pdf');
+        });
+    });
+</script>
 </html>
 

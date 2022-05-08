@@ -18,6 +18,16 @@ router.get("/login", (req, res) => {
   return res.render("login");
 });
 
+router.get("/users/previousFiles", (req, res) => {
+  if (req.session.user) {
+    return res.render("previousFiles");
+  }
+  if (req.query != null && req.query.error != null) {
+    params.error = req.query.error;
+  }
+  return res.render("login");
+});
+
 router.get("/logout", (req, res) => {
   req.session.destroy();
   return res.redirect("/");
@@ -157,10 +167,8 @@ router.get("/users/update", async (req, res) => {
 });
 
 router.post("/users/update", async (req, res) => {
-  console.log("test");
   const userData = req.body;
   const id = req.session.user._id.toString();
-  console.log("test in id", userData);
   // update validation in routes
   try {
     
@@ -172,7 +180,6 @@ router.post("/users/update", async (req, res) => {
     });
   }
   try {
-    console.log("test in try");
     const firstname = userData.firstname;
     const lastname = userData.lastname;
     const email = userData.email;
