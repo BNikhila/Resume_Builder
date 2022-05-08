@@ -89,8 +89,12 @@ router.post('/new', async (req, res) => {
          skill_name,
           skill_proficiency,
           );
-          
-        res.redirect('/resume/build')
+          console.log("resume", resume);
+          return res.render("resume_template1", {
+            user: req.session.user,
+            resume: resume
+          });
+      
     } catch (e) {
         if (typeof e == "string") {
             e = new Error(e);
@@ -108,28 +112,6 @@ router.get('/preview', (req, res) => {
         user: req.session.user,
       });
 })
-router.get('/build', (req, res) => {
-  const user = req.session.user;
-  if (!user) {
-      return res.redirect('/users/login')
-  }
-  Resume.findOne({userId: user._id}).lean()
-  .then(resume => {
-      if (resume) {
-          res.render('resume_template1', {
-              layout: false,
-              user: req.session.user,
-              resume: resume
-          })
-      } else {
-          // res.json({
-          //     message: 'No user found'
-          // })
-          
-          res.redirect('/resume/new')
-      }
-  })
-  
-})
+
 
 module.exports = router;

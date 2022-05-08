@@ -15,7 +15,7 @@ router.get("/login", (req, res) => {
   if (req.session.user) {
     return res.redirect("/");
   }
-
+  
   if (req.query != null && req.query.error != null) {
     params.error = req.query.error;
   }
@@ -77,10 +77,16 @@ router.get("/user/:id", async (req, res) => {
     );
   }
   try {
-    validate.checkNonNull(id);
-    validate.checkString(id);
     utils.parseObjectId(id, "User ID");
     const thisuser = await usersData.get(id);
+   
+    return res.render("userprofile", {
+      nameOfUser: thisuser.firstname + " " + thisuser.lastname,
+      email: thisuser.email,
+      phoneNumber: thisuser.phonenumber,
+      userName: thisuser.username,
+      user: req.session.user,
+    });
    
   } catch (e) {
     return res.status(errorCode.NOT_FOUND).render("error", {
@@ -131,6 +137,7 @@ router.post("/users/register", async (req, res) => {
     return res.status(400).json(ErrorMessage(e));
   }
 });
+
 
 //update
 // router.get("/users/update", async (req, res) => {
