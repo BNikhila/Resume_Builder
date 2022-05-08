@@ -533,7 +533,7 @@ ol {
   padding: 0 20px;
   min-width: 100px;
   color: #fff !important;
-  background: rgb(62, 148, 228);
+  background: #007bc8;
   height: 35px;
   border-radius: 5px;
   border: 1px solid #fff !important;
@@ -735,7 +735,7 @@ ol {
   opacity: 1;
 }
 .integration-link.light .integration-text {
-  color: #3e94e4;
+  color: #007bc8;
   font-weight: 600;
 }
 .integration-link.full:before {
@@ -2420,16 +2420,16 @@ ol {
   background-size: 75%;
 }
 .free-7 {
-  border: 1px solid #1d88ed;
+  border: 1px solid #0078d5;
   text-align: center;
   padding: 15px;
 }
 .free-7 span {
-  color: #1d88ed;
+  color: #0078d5;
   font-weight: 600;
 }
 .free-7 p {
-  color: #1d88ed !important;
+  color: #0078d5 !important;
   margin-bottom: 0;
 }
 .price_table_text > h5 {
@@ -2451,7 +2451,7 @@ ol {
   position: relative;
   top: -5px;
   border-radius: 30px;
-  color: #1d88ed;
+  color: #0078d5;
 }
 .price_table_text > h1 {
   font-size: 40px;
@@ -2488,7 +2488,7 @@ ol {
 .icon_wrapper:after {
   content: "";
   border-right: 100px solid transparent;
-  border-top: 100px solid #3e94e4;
+  border-top: 100px solid #007bc8;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -2746,9 +2746,9 @@ ol {
   font-size: 16px;
   z-index: 2;
   line-height: 1.25;
-  color: #1d88ed;
+  color: #0078d5;
   background: #fff;
-  border: 2px solid #1d88ed;
+  border: 2px solid #0078d5;
   border-radius: 5px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -3053,7 +3053,7 @@ textarea:required {
   margin-bottom: 10px;
   color: #fff !important;
   font-size: 13px;
-  color: #d3cdcd;
+  color: #807474;
 }
 
 .copywrite_text > p > a {
@@ -3084,7 +3084,7 @@ textarea:required {
 .contact_info_area .contact_info p {
   margin-bottom: 0;
   font-size: 14px;
-  color: #d3cdcd;
+  color: #807474;
 }
 .contact_info_area .contact_info a:hover p {
   color: #fff;
@@ -3440,7 +3440,7 @@ textarea:required {
   line-height: 75px;
   margin: 0 auto;
   background-color: #190345;
-  color: #ffffff;
+  color: #767676;
 }
 .count-down .tab-metr {
   margin-top: 15px;
@@ -3805,7 +3805,7 @@ body.light-version {
 }
 
 .light-version p {
-  color: #888;
+  color: #767676;
 }
 
 .light-version h1,
@@ -3943,7 +3943,7 @@ body.light-version {
 }
 .preview-demo {
   margin: 20px 5px;
-  background: #1d88ed;
+  background: #0078d5;
   display: inline-block;
   padding: 15px 20px;
   width: 44%;
@@ -3954,9 +3954,9 @@ body.light-version {
   text-transform: uppercase;
 }
 .preview-demo.v2 {
-  color: #1d88ed;
+  color: #0078d5;
   background: #fff;
-  border: 2px solid #1d88ed;
+  border: 2px solid #0078d5;
 }
 .preview-demo i {
   margin-left: 10px;
