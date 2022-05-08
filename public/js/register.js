@@ -9,7 +9,7 @@
   const email = document.getElementById("email");
   const phoneNumber = document.getElementById("phonenumber");
   const linkedin = document.getElementById("linkedin");
-  $("input[name='phoneNumber']").keyup(function () {
+  $("input[name='phonenumber']").keyup(function () {
     console.log($(this).val().length);
     if ($(this).val().length >= 8) {
       $(this).val(
@@ -115,7 +115,7 @@
         username: userName.value,
         password: password.value,
         email: email.value,
-        phoneNumber: phoneNumber.value,
+        phonenumber: phoneNumber.value,
         linkedin: linkedin.value
       }),
       dataType: "text",

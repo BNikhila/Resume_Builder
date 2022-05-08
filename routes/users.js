@@ -46,7 +46,6 @@ router.post("/login", async (req, res) => {
 router.delete("/users/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    
     const deluser = await data.users.remove(id);
     res.json("The ${id} is deleted");
   } catch (e) {
