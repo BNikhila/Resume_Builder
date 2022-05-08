@@ -7,10 +7,7 @@ const async = require("hbs/lib/async");
 const saltRounds = 16;
 
 async function loginUser(username, password) {
-  validate.checkNonNull(username);
-  validate.checkNonNull(password);
-  validate.checkString(username);
-  validate.checkString(password);
+ 
 
   const usercol = await users();
   const user = await usercol.findOne({ username: username.toLowerCase() });
@@ -44,20 +41,7 @@ async function create(
   username,
   password
 ) {
-  validate.checkNonNull(firstname);
-  validate.checkNonNull(lastname);
-  validate.checkNonNull(email);
-  validate.checkNonNull(phonenumber);
-  validate.checkNonNull(username);
-  validate.checkNonNull(password);
-  validate.checkString(firstname);
-  validate.checkString(lastname);
-  validate.checkString(email);
-  validate.checkString(phonenumber);
-  validate.checkString(username);
-  validate.checkString(password);
-  validate.checkEmail(email);
-  validate.checkPhoneNumber(phonenumber);
+  
 
   const userCol = await users();
   const existingUser = await userCol.findOne({ username: username });
@@ -83,8 +67,7 @@ async function create(
 }
 
 async function get(id) {
-  validate.checkNonNull(id);
-  validate.checkString(id);
+  
   if (ObjectId.isValid(id) !== true) throw "ID is not a valid Object ID";
   const usercol = await users();
   const user = await usercol.findOne({ _id: ObjectId(id) });
@@ -95,20 +78,9 @@ async function get(id) {
 }
 
 async function update(id, firstname, lastname, email, linkedin, phonenumber) {
-  validate.checkNonNull(id);
-  validate.checkString(id); //update validation
-  validate.checkNonNull(firstname);
-  validate.checkNonNull(lastname);
-  validate.checkNonNull(email);
-  validate.checkNonNull(phonenumber);
-  validate.checkString(firstname);
-  validate.checkString(lastname);
-  validate.checkString(email);
-  validate.checkString(phonenumber);
-  validate.checkEmail(email);
-  validate.checkPhoneNumber(phonenumber);
-  const userCol = await users();
+  console.log("test in data")
 
+  const userCol = await users();
   const updated_users = {
     firstname: firstname,
     lastname: lastname,
@@ -116,12 +88,12 @@ async function update(id, firstname, lastname, email, linkedin, phonenumber) {
     linkedin: linkedin,
     phonenumber: phonenumber,
   };
-
+  console.log("testing in ", updated_users);
   const updatedone = await userCol.updateOne(
     { _id: ObjectId(id) },
     { $set: updated_users }
   );
-
+    console.log("updatedone", updatedone);
   if (updatedone.modifiedCount == 0) {
     throw "No update made to profile";
   }
@@ -168,4 +140,5 @@ module.exports = {
   remove,
   getAll,
   loginUser,
+  update
 };

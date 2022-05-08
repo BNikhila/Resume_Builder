@@ -2,11 +2,10 @@ const moment = require("moment");
 const { ObjectId } = require("mongodb");
 
 module.exports = {
-  checkNonNull() {
-    for (let i = 0; i < arguments.length; i++) {
-      const val = arguments[i];
-      if (val == null) throw `A field is either null or not passed`;
-    }
+  checkNonNull(varName) {
+    if (varName == null) throw `Must pass ${varName}`;
+    if (varName.trim().length == 0)
+      throw `${varName} must not be just empty spaces`;
   },
 
   checkNumber(num, varName) {

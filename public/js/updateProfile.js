@@ -1,15 +1,11 @@
 (function ($) {
-  $("#logo").on("click", function (event) {
-    $(location).attr("href", "/");
-  });
+  debugger;
   const firstName = document.getElementById("firstname");
   const lastName = document.getElementById("lastname");
-  const userName = document.getElementById("username");
-  const password = document.getElementById("password");
   const email = document.getElementById("email");
   const phoneNumber = document.getElementById("phonenumber");
   const linkedin = document.getElementById("linkedin");
-  $("input[name='phoneNumber']").keyup(function () {
+  $("input[name='phonenumber']").keyup(function () {
     console.log($(this).val().length);
     if ($(this).val().length >= 8) {
       $(this).val(
@@ -25,7 +21,7 @@
       );
     }
   });
-  const form = document.getElementById("create-user");
+  const form = document.getElementById("update-user");
   form.addEventListener("submit", function addProduct(event) {
     event.preventDefault();
     $("#error-div").hide();
@@ -43,36 +39,6 @@
       isValid = false;
     }
 
-    userName.value = userName.value.replace(/\s/g, "");
-    if (userName.value.length == 0) {
-      $("#username-errmsg").html("Username is empty").show().fadeOut(3000);
-      isValid = false;
-    } else if (userName.value.length < 5) {
-      $("#username-errmsg")
-        .html("Username must be at least 5 characters long")
-        .show()
-        .fadeOut(3000);
-      isValid = false;
-    }
-
-    password.value = password.value.replace(/\s/g, "");
-    if (password.value.length == 0) {
-      $("#password-errmsg").html("password is empty").show().fadeOut(3000);
-      isValid = false;
-    } else if (password.value.length < 6) {
-      $("#password-errmsg")
-        .html("Password must be at least 6 characters long")
-        .show()
-        .fadeOut(3000);
-      isValid = false;
-    } else if (!isValidPassword(password.value)) {
-      $("#password-errmsg")
-        .html(
-          "Password must contain at least one upper, one lower, one special character and one number"
-        )
-        .show();
-      isValid = false;
-    }
     email.value = email.value.replace(/\s/g, "");
     if (email.value.length == 0) {
       $("#email-errmsg")
@@ -89,7 +55,7 @@
     }
 
     phoneNumber.value = phoneNumber.value.replace(/\s/g, "");
-    if (phoneNumber.value.length == 0) {
+    if (phonenumber.value.length == 0) {
       $("#phonenumber-errmsg")
         .html("Phonenumber is empty")
         .show()
@@ -107,16 +73,14 @@
     }
     $.ajax({
       type: "POST",
-      url: "/users/register",
+      url: "/users/update",
       contentType: "application/json",
       data: JSON.stringify({
         firstname: firstName.value,
         lastname: lastName.value,
-        username: userName.value,
-        password: password.value,
         email: email.value,
-        phoneNumber: phoneNumber.value,
-        linkedin: linkedin.value
+        linkedin: linkedin.value,
+        phonenumber: phoneNumber.value,
       }),
       dataType: "text",
       success: function (responseMessage) {
