@@ -15,7 +15,6 @@ function removeErrorClass(element) {
   form.addEventListener("submit", function login(event) {
     event.preventDefault();
 
-    let isValid = true;
     // try {
     //   checkUsername(username.value);
     //   document
