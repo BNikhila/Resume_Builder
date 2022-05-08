@@ -1,50 +1,4 @@
-/*** 
-====================================================================
-  Table of contents
-====================================================================
-
-- Google Fonts
-- Css Imports
-- General Css Styles
-- Header Area style
-- Welcome Area Styles 
-- Partners area style
-- About us area style 
-- services-block-four style 
-- Demo-video area style 
-- Trust area style 
-- services area style 
-- Call-to-action area style
-- Video area style 
-- Gallery area style 
-- Cool-facts style 
-- Price table style
-- Testimonials area style 
-- Team area style
-- Blog area style 
-- Contact us style 
-- FAQ style -Timeline style 
-- Footer area style 
-
-***/
-
-/*** 
-
-====================================================================
-  Google fonts
-====================================================================
-
-***/
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700");
-
-/*** 
-
-====================================================================
-  Import All Css
-====================================================================
-
-***/
 
 @import "bootstrap.min.css";
 @import "animate.css";
@@ -56,14 +10,6 @@
 @import "animated-headline.css";
 @import "font-awesome.min.css";
 @import "themify-icons.css";
-
-/*** 
-
-====================================================================
-  General css style
-====================================================================
-
-***/
 
 .white-popup {
   position: relative;
@@ -296,8 +242,6 @@ ol {
     transform: rotate(360deg);
   }
 }
-
-/* Blip CSS */
 
 .dream-blip {
   position: absolute;
@@ -867,7 +811,6 @@ ol {
   background: #1717e552;
   padding: 50px 30px;
 }
-/* ##### 3.0 Wellcome Area CSS ##### */
 
 .welcome_area {
   position: relative;
@@ -1607,13 +1550,7 @@ p.artficial:before {
 .growing-company p .counter {
   color: #fff;
 }
-/*** 
 
-====================================================================
-  services-block-four style
-====================================================================
-
-***/
 .features {
   position: relative;
 }
@@ -2248,19 +2185,7 @@ p.artficial:before {
     rgba(52, 31, 151, 0.95)
   );
 }
-/*
-* ----------------------------------------------------------------------------------------
-*  what we do
-* ----------------------------------------------------------------------------------------
-*/
 
-/*** 
-
-====================================================================
-    What we do
-====================================================================
-
- ***/
 .what-we-do .outer {
   position: relative;
   padding-top: 0px;

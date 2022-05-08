@@ -1,11 +1,3 @@
-/*
- * Author: Digital Zoom Studio
- * Website: http://digitalzoomstudio.net/
- * Portfolio: http://codecanyon.net/user/ZoomIt/portfolio
- *
- * Version: 1.31
- *
- */
 @-webkit-keyframes keyframes-rotate {
   0% {
     transform: rotate(0deg);
