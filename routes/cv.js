@@ -173,14 +173,18 @@ router.get("/build", async(req, res) => {
   }
   const users = await cvData.build(user._id);
   if (users) {
-    res.render("cv_template1", {
-      layout: false,
-      users: users,
-    });
+    const cvs = users.cv;
+    if(cvs){
+      res.render("cv_template1", {
+        layout: false,
+        users: users,
+        cv: cvs[cvs.length-1]
+      });
+    }else{
+      res.redirect("/cv/new");
+    }
+    
   } else {
-    // res.json({
-    //     message: 'No user found'
-    // })
     res.redirect("/cv/new");
   }
 

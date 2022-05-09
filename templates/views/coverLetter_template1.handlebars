@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>{{ users.coverLetter.fullname }}</title>
+	<title>{{ coverLetter.fullname }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
@@ -23,12 +23,12 @@
 	
 		<div id="hd" class="letter-head">
 			<div class="top">
-				<h1>{{ users.coverLetter.fullname }}</h1>
+				<h1>{{ coverLetter.fullname }}</h1>
 			</div>
 			<div class="bottom">
-				<span>{{ users.coverLetter.phonenumber }}</span>
-				<span>{{ users.coverLetter.email }}</span>
-				<span>{{ users.coverLetter.linkedin }}</span>
+				<span>{{ users.phonenumber }}</span>
+				<span>{{ users.email }}</span>
+				<span>{{ users.linkedin }}</span>
 			</div>
 		</div><!--// hd -->
 
@@ -39,35 +39,35 @@
 				</div>
 
 				<div class="company">
-					<li>{{ users.coverLetter.managerName }}</li>
-					<li>{{ users.coverLetter.companyAddress }}</li>
-					<li>{{ users.coverLetter.companyPhone }}</li>
-					<li>{{ users.coverLetter.companyEmail }}</li>
+					<li>{{ coverLetter.managerName }}</li>
+					<li>{{ coverLetter.companyAddress }}</li>
+					<li>{{ coverLetter.companyPhone }}</li>
+					<li>{{ coverLetter.companyEmail }}</li>
 				</div>
 
 				<div class="salutation">					
-					<li>{{ users.coverLetter.salutation }}</li>
+					<li>{{ coverLetter.salutation }}</li>
 				</div>
 
 				<div class="paragraph p1">					
-					<p>{{ users.coverLetter.firstParagraph }}</p>
+					<p>{{ coverLetter.firstParagraph }}</p>
 				</div>
 
 				<div class="paragraph p2">					
-					<p>{{ users.coverLetter.secondParagraph }}</p>
+					<p>{{ coverLetter.secondParagraph }}</p>
 				</div>
 
 				<div class="paragraph p3">					
-					<p>{{ users.coverLetter.thirdParagraph }}</p>
+					<p>{{ coverLetter.thirdParagraph }}</p>
 				</div>
 
 				<div class="paragraph p4">					
-					<p>{{ users.coverLetter.finalParagraph }}</p>
+					<p>{{ coverLetter.finalParagraph }}</p>
 				</div>
 
 				<div class="conclusion">
 					<li>Sincerely,</li>
-					<li class="name">{{ users.coverLetter.fullname }}</li>
+					<li class="name">{{ coverLetter.fullname }}</li>
 				</div>
 			</div><!--// yui-main -->
 		</div><!--// bd -->

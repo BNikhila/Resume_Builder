@@ -190,16 +190,19 @@ router.get("/build", async (req, res) => {
     return res.redirect("/users/login");
   }
   const users = await resumeData.build(user._id);
-  console.log("resume build",users);
       if (users) {
-        res.render("resume_template1", {
-          layout: false,
-          users: users
-        });
+        const resumes = users.resume;
+        if(resumes){
+          res.render("resume_template1", {
+            layout: false,
+            users: users,
+            resume: resumes[resumes.length-1]
+          });
+        }else{
+          res.redirect("/resume/new");
+        }
+        
       } else {
-        // res.json({
-        //     message: 'No user found'
-        // })
         res.redirect("/resume/new");
       }
   

@@ -24,7 +24,7 @@
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>{{ users.firstname }} {{ users.lastname }}</h1>
-					<h2>{{ users.cv.title }}</h2>
+					<h2>{{ cv.title }}</h2>
 				</div>
 
 				<div class="yui-u sarah">
@@ -41,14 +41,14 @@
 			<div id="yui-main">
 				<div class="yui-b">
 
-					{{#if users.cv.profile}}
+					{{#if cv.profile}}
 						<div class="yui-gf">
 						<div class="yui-u first">
 							<h2>Profile</h2>
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								{{ users.cv.profile }} 
+								{{ cv.profile }} 
 							</p>
 						</div>
 					</div>
@@ -60,8 +60,8 @@
 						</div>
 						<div class="yui-u">
 							<ul class="talent">
-								<li>{{ users.cv.skill_name }}</li>
-								<li>{{ users.cv.skill_proficiency}}</li>
+								<li>{{ cv.skill_name }}</li>
+								<li>{{ cv.skill_proficiency}}</li>
 							</ul>
 						</div>
 					</div><!--// .yui-gf-->
@@ -72,16 +72,16 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.cv.research2_title }}</h2>
+							<h2>{{ cv.research2_title }}</h2>
 							</div>
-						{{#if users.cv.research2_title }}
+						{{#if cv.research2_title }}
 						<div class="yui-u sarah2">
-							<h2>{{ users.cv.research2_title }}</h2>
+							<h2>{{ cv.research2_title }}</h2>
 							</div>							
 						{{/if}}
-						{{#if users.cv.research3_title }}
+						{{#if cv.research3_title }}
 						<div class="yui-u sarah2">
-							<h2>{{ users.cv.research3_title }}</h2>
+							<h2>{{ cv.research3_title }}</h2>
 							</div>							
 						{{/if}}
 					</div><!--// .yui-gf -->
@@ -92,10 +92,10 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.cv.conference_title}}</h2>
+							<h2>{{ cv.conference_title}}</h2>
 							</div>
 						<div class="yui-u sarah2">
-							<h2>{{ users.cv.courses_title}}</h2>
+							<h2>{{ cv.courses_title}}</h2>
 							</div>							
 						
 					</div><!--// .yui-gf -->
@@ -105,7 +105,7 @@
 							<h2>Volunteer Experience</h2>
 						</div>
 						<div class="yui-u">
-							{{ users.cv.volunteer_title }}
+							{{ cv.volunteer_title }}
 						</div>
 					</div><!--// .yui-gf-->
 
@@ -114,7 +114,7 @@
 							<h2>Certificates</h2>
 						</div>
 						<div class="yui-u">
-							{{ users.cv.certificate_title }}
+							{{ cv.certificate_title }}
 						</div>
 					</div><!--// .yui-gf-->
 
@@ -128,10 +128,10 @@
 							{{!-- Loop Experiences --}}
 
 							<div class="job">
-								<h2>{{ users.cv.experience_title }}</h2>
-								<h3>{{ users.cv.experience_company }}</h3>
-								<h4>{{ users.cv.experience_fromYear }}-{{ users.cv.experience_toYear }}</h4>
-								<p>{{ users.cv.experience_info }}</p>
+								<h2>{{ cv.experience_title }}</h2>
+								<h3>{{ cv.experience_company }}</h3>
+								<h4>{{ cv.experience_fromYear }}-{{ cv.experience_toYear }}</h4>
+								<p>{{ cv.experience_info }}</p>
 							</div>
 
 						</div><!--// .yui-u -->
@@ -144,15 +144,15 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.cv.education_school }}</h2>
-							<h3>{{ users.cv.education_field}} &mdash; <strong>{{ users.cv.education_qualification }}</strong> </h3>
-							<p>From: {{ users.cv.education_fromYear }}-{{ users.cv.education_toYear }}</p>
+							<h2>{{ cv.education_school }}</h2>
+							<h3>{{ cv.education_field}} &mdash; <strong>{{ cv.education_qualification }}</strong> </h3>
+							<p>From: {{ cv.education_fromYear }}-{{ cv.education_toYear }}</p>
 						</div>
-						{{#if users.cv.education1}}
+						{{#if cv.education1}}
 						<div class="yui-u sarah2">
-							<h2>{{ users.cv.education1_school }}</h2>
-							<h3>{{ users.cv.education1_field}} &mdash; <strong>{{ users.cv.education1_qualification }}</strong> </h3>
-							<p>From: {{ users.cv.education1_fromYear }}-{{ users.cv.education1_.toYear }}</p>
+							<h2>{{ cv.education1_school }}</h2>
+							<h3>{{ cv.education1_field}} &mdash; <strong>{{ cv.education1_qualification }}</strong> </h3>
+							<p>From: {{ cv.education1_fromYear }}-{{ cv.education1_.toYear }}</p>
 						</div>							
 						{{/if}}
 					</div><!--// .yui-gf -->
@@ -163,7 +163,7 @@
 		</div><!--// bd -->
 
 		<div id="ft">
-			<p>{{ users.cv.firstname }} {{ users.cv.lastname }} &mdash; <a href="{{ users.cv.email }}">{{ users.cv.email }}</a> &mdash; {{ users.cv.phonenumber }}</p>
+			<p>{{ cv.firstname }} {{ cv.lastname }} &mdash; <a href="{{ cv.email }}">{{ cv.email }}</a> &mdash; {{ cv.phonenumber }}</p>
 		</div><!--// footer -->
 
 	</div><!-- // inner -->

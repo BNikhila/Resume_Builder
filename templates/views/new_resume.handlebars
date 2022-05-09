@@ -42,33 +42,37 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label>First Name:</label>
-                                            <input type="text" name="firstname" value={{user.firstname}}
+                                            <input type="text" name="firstname" id="firstname" value={{user.firstname}}
                                                 readonly="readonly" class="form-control">
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Last Name:</label>
-                                            <input type="text" name="lastname" value={{user.lastname}}
+                                            <input type="text" name="lastname" id="lastname" value={{user.lastname}}
                                                 readonly="readonly" class="form-control">
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Address:</label>
-                                            <input type="text" name="address" class="form-control">
+                                            <input type="text" name="address" id="address" class="form-control">
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Email:</label>
-                                            <input type="text" name="email" value={{user.email}} readonly="readonly"
+                                            <input type="text" name="email" id="email" value={{user.email}} readonly="readonly"
                                                 class="form-control">
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Linked In:</label>
-                                            <input type="text" name="linkedin" value={{user.linkedin}}
+                                            {{#if user.linkedin}}
+                                            <input type="text" name="linkedin" id="linkedin" value={{user.linkedin}}
                                                 readonly="readonly" class="form-control">
+                                            {{else}}
+                                                <input type="text" name="linkedin" id="linkedin" class="form-control">
+                                            {{/if}}
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Phone No:</label>
-                                            <input type="text" name="phonenumber" value={{user.phonenumber}}
+                                            <input type="text" name="phonenumber" id="phonenumber" value={{user.phonenumber}}
                                                 readonly="readonly" class="form-control">
                                         </div>
                                     </div>
@@ -83,12 +87,12 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <label>Title:</label>
-                                            <input type="text" name="title" class="form-control">
+                                            <input type="text" name="title" id="title" class="form-control">
                                         </div>
 
                                         <div class="col-lg-12">
                                             <label>Profile:</label>
-                                            <textarea type="text" name="profile" class="form-control"></textarea>
+                                            <textarea type="text" name="profile" id="profile" class="form-control"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -101,19 +105,19 @@
                                 <h3>Education 1</h3>
                                 <div class="new-edu">
                                     <label>Field of study:</label>
-                                    <input type="text" name="education_field" class="form-control">
+                                    <input type="text" name="education_field" id="education_field" class="form-control">
                                     <label>Qualification:</label>
-                                    <input type="text" name="education_qualification" class="form-control">
+                                    <input type="text" name="education_qualification" id="education_qualification" class="form-control">
                                     <label>School:</label>
-                                    <input type="text" name="education_school" class="form-control">
+                                    <input type="text" name="education_school" id="education_school" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="month" name="education_fromYear" class="form-control">
+                                            <input type="month" name="education_fromYear" id="education_fromYear"  class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="month" name="education_toYear" class="form-control">
+                                            <input type="month" name="education_toYear" id="education_toYear" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -123,19 +127,19 @@
                                 <h4>Education 2</h4>
                                 <div class="new-edu">
                                     <label>Field of study:</label>
-                                    <input type="text" name="education_field2" class="form-control">
+                                    <input type="text" name="education_field2" id="education_field2" class="form-control">
                                     <label>Qualification:</label>
-                                    <input type="text" name="education_qualification2" class="form-control">
+                                    <input type="text" name="education_qualification2" id="education_qualification2"  class="form-control">
                                     <label>School:</label>
-                                    <input type="text" name="education_school2" class="form-control">
+                                    <input type="text" name="education_school2" id="education_school2" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="month" name="education_fromYear2" class="form-control">
+                                            <input type="month" name="education_fromYear2" id="education_fromYear2" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="month" name="education_toYear2" class="form-control">
+                                            <input type="month" name="education_toYear2" id="education_toYear2" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -145,19 +149,19 @@
                                 <h4>Education 3</h4>
                                 <div class="new-edu">
                                     <label>Field of study:</label>
-                                    <input type="text" name="education_field3" class="form-control">
+                                    <input type="text" name="education_field3" id="education_field3" class="form-control">
                                     <label>Qualification:</label>
-                                    <input type="text" name="education_qualification3" class="form-control">
+                                    <input type="text" name="education_qualification3" id="education_qualification3" class="form-control">
                                     <label>School:</label>
-                                    <input type="text" name="education_school3" class="form-control">
+                                    <input type="text" name="education_school3" id="education_school3" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="month" name="education_fromYear3" class="form-control">
+                                            <input type="month" name="education_fromYear3" id="education_fromYear3" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="month" name="education_toYear3" class="form-control">
+                                            <input type="month" name="education_toYear3" id="education_toYear3" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -170,17 +174,17 @@
                                 <h3>Experience 1</h3>
                                 <div class="new-exp">
                                     <label>Title:</label>
-                                    <input type="text" name="experience_title" class="form-control">
+                                    <input type="text" name="experience_title" id="experience_title" class="form-control">
                                     <label>Company:</label>
-                                    <input type="text" name="experience_company" class="form-control">
+                                    <input type="text" name="experience_company" id="experience_company" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="number" name="experience_fromYear" class="form-control">
+                                            <input type="number" name="experience_fromYear" id="experience_fromYear" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="text" name="experience_toYear" class="form-control">
+                                            <input type="text" name="experience_toYear" id="experience_toYear" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -188,17 +192,17 @@
                                 <h4>Experience 2</h4>
                                 <div class="new-exp">
                                     <label>Title:</label>
-                                    <input type="text" name="experience_title2" class="form-control">
+                                    <input type="text" name="experience_title2" id="experience_title2" class="form-control">
                                     <label>Company:</label>
-                                    <input type="text" name="experience_company2" class="form-control">
+                                    <input type="text" name="experience_company2" id="experience_company2" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="number" name="experience_fromYear2" class="form-control">
+                                            <input type="number" name="experience_fromYear2" id="experience_fromYear2" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="text" name="experience_toYear2" class="form-control">
+                                            <input type="text" name="experience_toYear2" id="experience_toYear2" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -206,17 +210,17 @@
                                 <h4>Experience 3</h4>
                                 <div class="new-exp">
                                     <label>Title:</label>
-                                    <input type="text" name="experience_title3" class="form-control">
+                                    <input type="text" name="experience_title3" id="experience_title3" class="form-control">
                                     <label>Company:</label>
-                                    <input type="text" name="experience_company3" class="form-control">
+                                    <input type="text" name="experience_company3" id="experience_company3" class="form-control">
                                     <div class="form-row">
                                         <div class="col">
                                             <label>From year:</label>
-                                            <input type="number" name="experience_fromYear3" class="form-control">
+                                            <input type="number" name="experience_fromYear3" id="experience_fromYear3" class="form-control">
                                         </div>
                                         <div class="col">
                                             <label>To year (optional=present):</label>
-                                            <input type="text" name="experience_toYear3" class="form-control">
+                                            <input type="text" name="experience_toYear3" id="experience_toYear3" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -232,25 +236,25 @@
                                     <h3>Skill 1</h3>
                                     <div class="new-skills">
                                         <label>Skill</label>
-                                        <input type="text" name="skill_name" class="form-control">
+                                        <input type="text" name="skill_name" id="skill_name" class="form-control">
                                         <label>Proficiency</label>
-                                        <input type="text" name="skill_proficiency" class="form-control">
+                                        <input type="text" name="skill_proficiency" id="skill_proficiency" class="form-control">
                                     </div>
                                     <hr>
                                     <h4>Skill 2</h4>
                                     <div class="new-skills">
                                         <label>Skill</label>
-                                        <input type="text" name="skill_name2" class="form-control">
+                                        <input type="text" name="skill_name2" id="skill_name2" class="form-control">
                                         <label>Proficiency</label>
-                                        <input type="text" name="skill_proficiency2" class="form-control">
+                                        <input type="text" name="skill_proficiency2" id="skill_proficiency2" class="form-control">
                                     </div>
                                     <hr>
                                     <h4>Skill 3</h4>
                                     <div class="new-skills">
                                         <label>Skill</label>
-                                        <input type="text" name="skill_name3" class="form-control">
+                                        <input type="text" name="skill_name3" id="skill_name3"  class="form-control">
                                         <label>Proficiency</label>
-                                        <input type="text" name="skill_proficiency3" class="form-control">
+                                        <input type="text" name="skill_proficiency3" id="skill_proficiency3" class="form-control">
                                     </div>
                                 </div>
                             </div>

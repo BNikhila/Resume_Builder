@@ -102,12 +102,17 @@ router.get("/build", async(req, res) => {
     return res.redirect("/users/login");
   }
   const users = await coverletterData.build(user._id);
-  console.log("coverletter", users)
   if (users) {
-    res.render("coverletter_template1", {
-      layout: false,
-      users: users,
-    });
+    const coverLetters = users.coverLetter;
+    if(coverLetters){
+      res.render("coverLetter_template1", {
+        layout: false,
+        users: users,
+        coverLetter: coverLetters[coverLetters.length-1]
+      });
+    }else{
+      res.redirect("/coverletter/new");
+    }
   } else {
     res.redirect("/coverletter/new");
   }

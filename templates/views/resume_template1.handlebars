@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>{{ users.resume.firstName }} {{ users.resume.lastName }}</title>
+	<title>{{ users.firstName }} {{ users.lastName }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
@@ -24,7 +24,7 @@
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>{{ users.firstname }} {{ users.lastname }}</h1>
-					<h2>{{ users.resume.title }}</h2>
+					<h2>{{ resume.title }}</h2>
 				</div>
 
 				<div class="yui-u sarah">
@@ -41,14 +41,14 @@
 			<div id="yui-main">
 				<div class="yui-b">
 
-					{{#if users.resume.profile}}
+					{{#if resume.profile}}
 						<div class="yui-gf">
 						<div class="yui-u first">
 							<h2>Profile</h2>
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								{{ users.resume.profile }} 
+								{{ resume.profile }} 
 							</p>
 						</div>
 					</div>
@@ -61,19 +61,19 @@
 						<div class="yui-u">
 							{{!-- Loop skills --}}
 							<ul class="talent">
-								<li>{{ users.resume.skill_name }}</li>
-								<li>{{ users.resume.skill_proficiency}}</li>
+								<li>{{ resume.skill_name }}</li>
+								<li>{{ resume.skill_proficiency}}</li>
 							</ul>
-							{{#if users.resume.skill2}}
+							{{#if resume.skill2}}
 								<ul class="talent">
-								<li>{{ users.resume.skill2_name }}</li>
-								<li>{{ users.resume.skill2_proficiency}}</li>
+								<li>{{ resume.skill2_name }}</li>
+								<li>{{ resume.skill2_proficiency}}</li>
 							</ul>
 							{{/if}}
-							{{#if users.resume.skill3}}
+							{{#if resume.skill3}}
 								<ul class="talent">
-								<li>{{ users.resume.skill3_name }}</li>
-								<li>{{ users.resume.skill3_proficiency}}</li>
+								<li>{{ resume.skill3_name }}</li>
+								<li>{{ resume.skill3_proficiency}}</li>
 							</ul>
 							{{/if}}
 						</div>
@@ -89,27 +89,27 @@
 							{{!-- Loop Experiences --}}
 
 							<div class="job">
-								<h2>{{ users.resume.experience_title }}</h2>
-								<h3>{{ users.resume.experience_company }}</h3>
-								<h4>{{ users.resume.experience_fromYear }}-{{ users.resume.experience_toYear }}</h4>
-								<p>{{ users.resume.experience_info }}</p>
+								<h2>{{ resume.experience_title }}</h2>
+								<h3>{{ resume.experience_company }}</h3>
+								<h4>{{ resume.experience_fromYear }}-{{ resume.experience_toYear }}</h4>
+								<p>{{ resume.experience_info }}</p>
 							</div>
 
-							{{#if users.resume.experience2}}
+							{{#if resume.experience2}}
 								<div class="job">
-								<h2>{{ users.resume.experience2_title }}</h2>
-								<h3>{{ users.resume.experience2_company }}</h3>
-								<h4>{{ users.resume.experience2_fromYear }}-{{ users.resume.experience2_toYear }}</h4>
-								<p>{{ users.resume.experience_2info }}</p>
+								<h2>{{ resume.experience2_title }}</h2>
+								<h3>{{ resume.experience2_company }}</h3>
+								<h4>{{ resume.experience2_fromYear }}-{{ resume.experience2_toYear }}</h4>
+								<p>{{ resume.experience_2info }}</p>
 							</div>
 							{{/if}}
 
-							{{#if users.resume.experience3}}
+							{{#if resume.experience3}}
 								<div class="job last">
-								<h2>{{ users.resume.experience3_title }}</h2>
-								<h3>{{ users.resume.experience3_company }}</h3>
-								<h4>{{ users.resume.experience3_fromYear }}-{{ users.resume.experience3_toYear }}</h4>
-								<p>{{ users.resume.experience_3info }}</p>
+								<h2>{{ resume.experience3_title }}</h2>
+								<h3>{{ resume.experience3_company }}</h3>
+								<h4>{{ resume.experience3_fromYear }}-{{ resume.experience3_toYear }}</h4>
+								<p>{{ resume.experience_3info }}</p>
 							</div>
 							{{/if}}
 
@@ -123,22 +123,22 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.resume.education_school }}</h2>
-							<h3>{{ users.resume.education_field}} &mdash; <strong>{{ users.resume.education_qualification }}</strong> </h3>
-							<p>From: {{ users.resume.education_fromYear }}-{{ users.resume.education_toYear }}</p>
+							<h2>{{ resume.education_school }}</h2>
+							<h3>{{ resume.education_field}} &mdash; <strong>{{ resume.education_qualification }}</strong> </h3>
+							<p>From: {{ resume.education_fromYear }}-{{ resume.education_toYear }}</p>
 						</div>
-						{{#if users.resume.education2}}
+						{{#if resume.education2}}
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.education2_school }}</h2>
-							<h3>{{ users.resume.education2_field}} &mdash; <strong>{{ users.resume.education2_qualification }}</strong> </h3>
-							<p>From: {{ users.resume.education2_fromYear }}-{{ users.resume.education2_toYear }}</p>
+							<h2>{{ resume.education2_school }}</h2>
+							<h3>{{ resume.education2_field}} &mdash; <strong>{{ resume.education2_qualification }}</strong> </h3>
+							<p>From: {{ resume.education2_fromYear }}-{{ resume.education2_toYear }}</p>
 						</div>							
 						{{/if}}
-						{{#if users.resume.education3}}
+						{{#if resume.education3}}
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.education3_school }}</h2>
-							<h3>{{ users.resume.education3_field}} &mdash; <strong>{{ users.resume.education3_qualification }}</strong> </h3>
-							<p>From: {{ users.resume.education3_fromYear }}-{{users.resume.education3_toYear }}</p>
+							<h2>{{ resume.education3_school }}</h2>
+							<h3>{{ resume.education3_field}} &mdash; <strong>{{ resume.education3_qualification }}</strong> </h3>
+							<p>From: {{ resume.education3_fromYear }}-{{resume.education3_toYear }}</p>
 						</div>							
 						{{/if}}
 					</div><!--// .yui-gf -->
@@ -149,7 +149,7 @@
 		</div><!--// bd -->
 
 		<div id="ft">
-			<p>{{ users.resume.firstname }} {{ users.resume.lastname }} &mdash; <a href="{{ users.resume.email }}">{{ users.resume.email }}</a> &mdash; {{ users.resume.phonenumber }}</p>
+			<p>{{ resume.firstname }} {{ resume.lastname }} &mdash; <a href="{{ resume.email }}">{{ resume.email }}</a> &mdash; {{ resume.phonenumber }}</p>
 		</div><!--// footer -->
 
 	</div><!-- // inner -->
