@@ -1,6 +1,7 @@
 const mongoCollections = require("../config/mongoCollections");
 const usersCol = mongoCollections.users;
 const { ObjectId } = require("mongodb");
+const validator = require("../helper/validator");
 
 async function create(
   id,
@@ -52,6 +53,8 @@ async function create(
   const users = await userColnew.findOne({
     _id: ObjectId(id)
   });
+  try{
+ 
   const newCv = {
     address: address,
     linkedin: linkedin,
@@ -111,6 +114,10 @@ async function create(
     throw "failed to update cv details"
   }
   return newCv;
+}catch(e){
+  throw e
+}
+
 }
 
 async function build(id) {

@@ -153,13 +153,18 @@ router.post("/new", async (req, res) => {
     console.log("resume create",resume);
     res.redirect('/resume/build')
   } catch (e) {
+    console.log("test error in routes")
     if (typeof e == "string") {
       e = new Error(e);
       e.code = 400;
     }
     return res
       .status(validator.isValidResponseStatusCode(e.code) ? e.code : 500)
-      .json(ErrorMessage(e.message));
+      .render("error", {
+        code: validator.isValidResponseStatusCode(e.code) ? e.code : 500,
+        error: e.message,
+        user: req.session.user,
+      });
   }
 });
 

@@ -70,8 +70,12 @@ router.post("/new", async (req, res) => {
       e.code = 400;
     }
     return res
-      .status(validator.isValidResponseStatusCode(e.code) ? e.code : 500)
-      .json(ErrorMessage(e.message));
+    .status(validator.isValidResponseStatusCode(e.code) ? e.code : 500)
+    .render("error", {
+      code: validator.isValidResponseStatusCode(e.code) ? e.code : 500,
+      error: e.message,
+      user: req.session.user,
+    });
   }
 });
 

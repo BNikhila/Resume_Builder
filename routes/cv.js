@@ -141,8 +141,12 @@ router.post("/new", async (req, res) => {
     }
     return res
       .status(validator.isValidResponseStatusCode(e.code) ? e.code : 500)
-      .json(ErrorMessage(e.message));
-  }
+      .render("error", {
+        code: validator.isValidResponseStatusCode(e.code) ? e.code : 500,
+        error: e.message,
+        user: req.session.user,
+      });
+    }
 });
 
 router.get("/preview", (req, res) => {

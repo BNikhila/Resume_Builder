@@ -73,8 +73,6 @@ async function get(id) {
 }
 
 async function update(id, firstname, lastname, email, linkedin, phonenumber) {
-  console.log("test in data")
-
   const userCol = await users();
   const updated_users = {
     firstname: firstname,
@@ -83,12 +81,10 @@ async function update(id, firstname, lastname, email, linkedin, phonenumber) {
     linkedin: linkedin,
     phonenumber: phonenumber,
   };
-  console.log("testing in ", updated_users);
   const updatedone = await userCol.updateOne(
     { _id: ObjectId(id) },
     { $set: updated_users }
   );
-    console.log("updatedone", updatedone);
   if (updatedone.modifiedCount == 0) {
     throw "No update made to profile";
   }
