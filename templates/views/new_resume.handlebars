@@ -4,20 +4,6 @@
         <div class="row">
 
             <div class="col-12">
-                <div class="cv-download">
-                    <div class="row align-items-center">
-
-                        <div class="col-lg-6 col-md-12">
-                            <p class="topnote">Fill all required fields and click create cv to download CV in both PDF
-                                and PNG formats</p>
-
-                        </div>
-                        <div class="col-lg-6 col-md-12 mt-s">
-                            <a href="#" class="btn btn-primary">Download as PDF</a>
-                            <a href="#" class="btn btn-soft-primary ms-2">Download as PNG</a>
-                        </div>
-                    </div>
-                </div>
                 <div class="container">
 
                     <form method="POST" action="/resume/new">
@@ -29,23 +15,37 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label>First Name:</label>
+                                            {{#if user.firstname}}
                                             <input type="text" name="firstname" id="firstname" value={{user.firstname}}
                                                 readonly="readonly" class="form-control">
+                                            {{else}}
+                                            <input type="text" name="firstname" id="firstname"  class="form-control">
+                                                {{/if}}
                                         </div>
 
                                         <div class="col-lg-6">
                                             <label>Last Name:</label>
+                                            {{#if user.lastname}}
                                             <input type="text" name="lastname" id="lastname" value={{user.lastname}}
                                                 readonly="readonly" class="form-control">
+                                                {{else}}
+                                                <input type="text" name="lastname" id="lastname"  class="form-control">
+                                                {{/if}}
+                                                
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Address:</label>
                                             <input type="text" name="address" id="address" class="form-control">
+                                            <span id="address-errmsg" class="error"></span>
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Email:</label>
+                                            {{#if user.lastname}}
                                             <input type="text" name="email" id="email" value={{user.email}} readonly="readonly"
                                                 class="form-control">
+                                                {{else}}
+                                                <input type="text" name="email" id="email"  class="form-control">
+                                                {{/if}}
                                         </div>
                                         <div class="col-lg-6">
                                             <label>Linked In:</label>
@@ -59,8 +59,12 @@
 
                                         <div class="col-lg-6">
                                             <label>Phone No:</label>
+                                            {{#if user.linkedin}}
                                             <input type="text" name="phonenumber" id="phonenumber" value={{user.phonenumber}}
                                                 readonly="readonly" class="form-control">
+                                                 {{else}}
+                                                <input type="text" name="phonenumber" id="phonenumber" class="form-control">
+                                            {{/if}}
                                         </div>
                                     </div>
                                 </div>
