@@ -11,8 +11,6 @@ async function create(
   profile,
 
   research_title,
-  research2_title,
-  research3_title,
 
   // education
   education_field,
@@ -21,22 +19,11 @@ async function create(
   education_fromYear,
   education_toYear,
 
-  education2_field,
-  education2_qualification,
-  education2_school,
-  education2_fromYear,
-  education2_toYear,
-
   // experiences
   experience_title,
   experience_company,
   experience_fromYear,
   experience_toYear,
-
-  experience2_title,
-  experience2_company,
-  experience2_fromYear,
-  experience2_toYear,
 
   publications_title,
   conference_title,
@@ -53,8 +40,7 @@ async function create(
   const users = await userColnew.findOne({
     _id: ObjectId(id)
   });
-  try{
- 
+
   const newCv = {
     address: address,
     linkedin: linkedin,
@@ -63,8 +49,7 @@ async function create(
     profile: profile,
 
     research_title: research_title,
-    research2_title: research2_title,
-    research3_title: research3_title,
+   
     // education
     education_field: education_field,
     education_qualification: education_qualification,
@@ -72,22 +57,11 @@ async function create(
     education_fromYear: education_fromYear,
     education_toYear: education_toYear,
 
-    education2_field: education2_field,
-    education2_qualification: education2_qualification,
-    education2_school: education2_school,
-    education2_fromYear: education2_fromYear,
-    education2_toYear: education2_toYear,
-
     // experiences
     experience_title: experience_title,
     experience_company: experience_company,
     experience_fromYear: experience_fromYear,
     experience_toYear: experience_toYear,
-
-    experience2_title: experience2_title,
-    experience2_company: experience2_company,
-    experience2_fromYear: experience2_fromYear,
-    experience2_toYear: experience2_toYear,
 
     publications_title: publications_title,
     conference_title: conference_title,
@@ -114,9 +88,6 @@ async function create(
     throw "failed to update cv details"
   }
   return newCv;
-}catch(e){
-  throw e
-}
 
 }
 

@@ -21,7 +21,6 @@ async function create(
 ) {
   // Input Validation by calling functions from validation.js
   const userColnew = await usersCol();
-  try{
   
   const users = await userColnew.findOne({
     _id: ObjectId(id)
@@ -57,24 +56,17 @@ async function create(
     throw "failed to update Coverletter details"
   }
   return newCoverletter;
-}catch(e)
-{
-  throw e;
-}
+
 }
 
 async function build(id) {
-  try{
-  validator.isValidObjectID(id);
+  
   const userColnew = await usersCol();
 
   const users = await userColnew.findOne({
     _id: ObjectId(id)
   });
   return users;
-}catch(e){
-  throw e;
-}
 }
 
 module.exports = {

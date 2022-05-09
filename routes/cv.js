@@ -36,8 +36,6 @@ router.post("/new", async (req, res) => {
     profile,
 
     research_title,
-    research2_title,
-    research3_title,
 
     // education
     education_field,
@@ -46,22 +44,11 @@ router.post("/new", async (req, res) => {
     education_fromYear,
     education_toYear,
 
-    education2_field,
-    education2_qualification,
-    education2_school,
-    education2_fromYear,
-    education2_toYear,
-
     // experiences
     experience_title,
     experience_company,
     experience_fromYear,
     experience_toYear,
-
-    experience2_title,
-    experience2_company,
-    experience2_fromYear,
-    experience2_toYear,
 
     publications_title,
     conference_title,
@@ -84,8 +71,6 @@ router.post("/new", async (req, res) => {
       profile,
 
       research_title,
-      research2_title,
-      research3_title,
 
       // education
       education_field,
@@ -94,12 +79,11 @@ router.post("/new", async (req, res) => {
       education_fromYear,
       education_toYear,
 
-      education2_field,
-      education2_qualification,
-      education2_school,
-      education2_fromYear,
-      education2_toYear,
-
+      // experiences
+      experience_title,
+      experience_company,
+      experience_fromYear,
+      experience_toYear,
 
       // experiences
       experience_title,
@@ -107,21 +91,6 @@ router.post("/new", async (req, res) => {
       experience_fromYear,
       experience_toYear,
 
-      experience2_title,
-      experience2_company,
-      experience2_fromYear,
-      experience2_toYear,
-
-      // experiences
-      experience_title,
-      experience_company,
-      experience_fromYear,
-      experience_toYear,
-
-      experience2_title,
-      experience2_company,
-      experience2_fromYear,
-      experience2_toYear,
 
       publications_title,
       conference_title,
