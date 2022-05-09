@@ -41,7 +41,7 @@
         error.innerHTML = JSON.parse(
           responseError.responseText
         ).message.preventXSS();
-        error.show().fadeOut(3000);
+        error.show();
       },
     });
   });
