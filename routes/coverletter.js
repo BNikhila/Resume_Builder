@@ -30,11 +30,8 @@ router.post("/new", async (req, res) => {
     return res.redirect("/users/login");
   }
   const {
-    fullName,
-    email,
-    linkedIn,
-    phoneNo,
-
+    linkedin,
+    fullname,
     // education
     managerName,
     companyAddress,
@@ -53,11 +50,8 @@ router.post("/new", async (req, res) => {
     //create and store the new user
     const coverletter = await coverletterData.create(
       user._id,
-      fullName,
-      email,
-      linkedIn,
-      phoneNo,
-
+      linkedin,
+      fullname,
       managerName,
       companyAddress,
       companyPhone,
@@ -107,12 +101,11 @@ router.get("/build", (req, res) => {
   if (!user) {
     return res.redirect("/users/login");
   }
-  const coverletter = coverletterData.build(user._id);
-  if (coverletter) {
+  const users = coverletterData.build(user._id);
+  if (users) {
     res.render("coverletter_template1", {
       layout: false,
-      user: req.user,
-      coverletter: coverletter[coverletter.length - 1],
+      users: users,
     });
   } else {
     res.redirect("/coverletter/new");

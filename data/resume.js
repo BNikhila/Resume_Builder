@@ -1,21 +1,14 @@
 const mongoCollections = require("../config/mongoCollections");
-const resumeCollections = mongoCollections.resume;
 const usersCol = mongoCollections.users;
-const validator = require("../helper/validator");
-const utils = require("../helper/utils");
-const errorCode = require("../helper/common").errorCode;
-const userData = require("../data/users");
 const { ObjectId } = require("mongodb");
 
 async function create(
   id,
-  firstName,
-  lastName,
+  linkedin,
   address,
-  email,
-  linkedIn,
-  phoneNo,
 
+  title,
+  profile,
   // education
   education_field,
   education_qualification,
@@ -67,13 +60,10 @@ async function create(
     _id: ObjectId(id)
 });
   const newResume = {
-    firstName: firstName,
-    lastName: lastName,
+    linkedIn: linkedin,
     address: address,
-    email: email,
-    linkedIn: linkedIn,
-    phoneNo: phoneNo,
-
+    title: title,
+    profile: profile,
     // education
     education_field: education_field,
     education_qualification: education_qualification,

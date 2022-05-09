@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 
   try {
     //create and store the new user
-    const resume = await resumeData.create(name, email, subject, message);
+    const resume = await resumeData.create(user._id, name, email, subject, message);
 
     res.redirect("/");
   } catch (e) {

@@ -28,14 +28,16 @@ router.post("/new", async (req, res) => {
   const user = req.session.user;
   if (!user) {
     return res.redirect("/users/login");
-    }
+  }
   const {
-    firstName,
-    lastName,
     address,
-    email,
-    linkedIn,
-    phoneNo,
+    linkedin,
+    title,
+    profile,
+
+    research_title,
+    research2_title,
+    research3_title,
 
     // education
     education_field,
@@ -50,12 +52,6 @@ router.post("/new", async (req, res) => {
     education2_fromYear,
     education2_toYear,
 
-    education3_field,
-    education3_qualification,
-    education3_school,
-    education3_fromYear,
-    education3_toYear,
-
     // experiences
     experience_title,
     experience_company,
@@ -67,32 +63,29 @@ router.post("/new", async (req, res) => {
     experience2_fromYear,
     experience2_toYear,
 
-    experience3_title,
-    experience3_company,
-    experience3_fromYear,
-    experience3_toYear,
+    publications_title,
+    conference_title,
+    courses_title,
+    certificate_title,
+    volunteer_title,
 
     // skills
-    skill_name,
     skill_proficiency,
-
-    skill2_name,
-    skill2_proficiency,
-
-    skill3_name,
-    skill3_proficiency,
+    skill_name,
   } = req.body;
 
   try {
     //create and store the new user
-    const resume = await cvData.create(
+    const cv = await cvData.create(
       user._id,
-      firstName,
-      lastName,
       address,
-      email,
-      linkedIn,
-      phoneNo,
+      linkedin,
+      title,
+      profile,
+
+      research_title,
+      research2_title,
+      research3_title,
 
       // education
       education_field,
@@ -102,28 +95,11 @@ router.post("/new", async (req, res) => {
       education_toYear,
 
       education2_field,
-
       education2_qualification,
       education2_school,
       education2_fromYear,
       education2_toYear,
 
-      education3_field,
-      education3_qualification,
-      education3_school,
-      education3_fromYear,
-      education3_toYear,
-
-      education2_qualification,
-      education2_school,
-      education2_fromYear,
-      education2_toYear,
-
-      education3_field,
-      education3_qualification,
-      education3_school,
-      education3_fromYear,
-      education3_toYear,
 
       // experiences
       experience_title,
@@ -136,20 +112,26 @@ router.post("/new", async (req, res) => {
       experience2_fromYear,
       experience2_toYear,
 
-      experience3_title,
-      experience3_company,
-      experience3_fromYear,
-      experience3_toYear,
+      // experiences
+      experience_title,
+      experience_company,
+      experience_fromYear,
+      experience_toYear,
+
+      experience2_title,
+      experience2_company,
+      experience2_fromYear,
+      experience2_toYear,
+
+      publications_title,
+      conference_title,
+      courses_title,
+      certificate_title,
+      volunteer_title,
 
       // skills
-      skill_name,
       skill_proficiency,
-
-      skill2_name,
-      skill2_proficiency,
-
-      skill3_name,
-      skill3_proficiency
+      skill_name,
     );
     res.redirect('/cv/build')
   } catch (e) {
@@ -186,23 +168,22 @@ router.get("/preview", (req, res) => {
 
 router.get("/build", (req, res) => {
   const user = req.session.user;
-  if (!user) {  
+  if (!user) {
     return res.redirect("/users/login");
   }
-  const cv = cvData.build(user._id);
-      if (cv) {
-        res.render("cv_template1", {
-          layout: false,
-          user: req.user,
-          cv: cv[cv.length - 1],
-        });
-      } else {
-        // res.json({
-        //     message: 'No user found'
-        // })
-        res.redirect("/cv/new");
-      }
-  
+  const users = cvData.build(user._id);
+  if (users) {
+    res.render("cv_template1", {
+      layout: false,
+      users: users,
+    });
+  } else {
+    // res.json({
+    //     message: 'No user found'
+    // })
+    res.redirect("/cv/new");
+  }
+
 });
 
 module.exports = router;

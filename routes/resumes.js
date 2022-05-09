@@ -29,14 +29,14 @@ router.post("/new", async (req, res) => {
   if (!user) {
     return res.redirect("/users/login");
     }
+    console.log("req.body", req.body);
   const {
-    firstName,
-    lastName,
     address,
-    email,
-    linkedIn,
-    phoneNo,
+    linkedin,
 
+    // about me
+    title,
+    profile,
     // education
     education_field,
     education_qualification,
@@ -87,13 +87,12 @@ router.post("/new", async (req, res) => {
     //create and store the new user
     const resume = await resumeData.create(
       user._id,
-      firstName,
-      lastName,
       address,
-      email,
-      linkedIn,
-      phoneNo,
+      linkedin,
 
+      title,
+      profile,
+      
       // education
       education_field,
       education_qualification,
@@ -151,6 +150,7 @@ router.post("/new", async (req, res) => {
       skill3_name,
       skill3_proficiency
     );
+    console.log("resume create",resume);
     res.redirect('/resume/build')
   } catch (e) {
     if (typeof e == "string") {
@@ -184,17 +184,17 @@ router.get("/preview", (req, res) => {
   }
 });
 
-router.get("/build", (req, res) => {
+router.get("/build", async (req, res) => {
   const user = req.session.user;
   if (!user) {  
     return res.redirect("/users/login");
   }
-  const resumes = resumeData.build(user._id);
-      if (resumes) {
+  const users = await resumeData.build(user._id);
+  console.log("resume build",users);
+      if (users) {
         res.render("resume_template1", {
           layout: false,
-          user: req.user,
-          resume: resumes[resumes.length - 1],
+          users: users
         });
       } else {
         // res.json({

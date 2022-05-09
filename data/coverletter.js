@@ -4,11 +4,8 @@ const { ObjectId } = require("mongodb");
 
 async function create(
   id,
-  fullName,
-  email,
-  linkedIn,
-  phoneNo,
-
+  linkedin,
+  fullname,
   managerName,
   companyAddress,
   companyPhone,
@@ -27,11 +24,8 @@ async function create(
     _id: ObjectId(id)
   });
   const newCoverletter = {
-    fullName: fullName,
-    email: email,
-    linkedIn: linkedIn,
-    phoneNo: phoneNo,
-
+    linkedin: linkedin,
+    fullname: fullname,
     // education
     managerName: managerName,
     companyAddress: companyAddress,

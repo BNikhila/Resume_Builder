@@ -6,8 +6,10 @@ const utils = require("../helper/utils");
 const errorCode = require("../helper/common").errorCode;
 const userData = require("../data/users");
 
-async function create(name, email, subject, message) {
-  // Input Validation by calling functions from validation.js
+async function create(id, name, email, subject, message) {
+  const users = await userColnew.findOne({
+    _id: ObjectId(id)
+  });
   const contactusData = {
     name: name,
     email: email,
@@ -15,12 +17,20 @@ async function create(name, email, subject, message) {
     message: message,
   };
 
-  const conatctusData = await contactusCollections();
-  const users = await userCollections();
-  const insertInfo = await conatctusData.insertOne(contactusData);
+  if (users === null)
+    throw `No user exists with such ${id}`
+    
+  const updateUsers = await userColnew.updateOne({
+    _id: ObjectId(id)
+  }, {
+    $addToSet: {
+      contactusData: contactusData
+    }
+  });
 
-  if (insertInfo.length === 0) throw new Error("Could not add a resume");
-  let id = insertInfo.insertedId;
+  if (!updateUsers.matchedCount && !updateUsers.modifiedCount) {
+    throw "failed to update Coverletter details"
+  }
 }
 
 module.exports = {

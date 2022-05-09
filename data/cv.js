@@ -4,12 +4,14 @@ const { ObjectId } = require("mongodb");
 
 async function create(
   id,
-  firstName,
-  lastName,
   address,
-  email,
-  linkedIn,
-  phoneNo,
+  linkedin,
+  title,
+  profile,
+
+  research_title,
+  research2_title,
+  research3_title,
 
   // education
   education_field,
@@ -24,12 +26,6 @@ async function create(
   education2_fromYear,
   education2_toYear,
 
-  education3_field,
-  education3_qualification,
-  education3_school,
-  education3_fromYear,
-  education3_toYear,
-
   // experiences
   experience_title,
   experience_company,
@@ -41,34 +37,31 @@ async function create(
   experience2_fromYear,
   experience2_toYear,
 
-  experience3_title,
-  experience3_company,
-  experience3_fromYear,
-  experience3_toYear,
+  publications_title,
+  conference_title,
+  courses_title,
+  certificate_title,
+  volunteer_title,
 
   // skills
-  skill_name,
   skill_proficiency,
-
-  skill2_name,
-  skill2_proficiency,
-
-  skill3_name,
-  skill3_proficiency
+  skill_name,
 ) {
   // Input Validation by calling functions from validation.js
   const userColnew = await usersCol();
   const users = await userColnew.findOne({
     _id: ObjectId(id)
-});
+  });
   const newCv = {
-    firstName: firstName,
-    lastName: lastName,
     address: address,
-    email: email,
-    linkedIn: linkedIn,
-    phoneNo: phoneNo,
+    linkedin: linkedin,
 
+    title: title,
+    profile: profile,
+
+    research_title: research_title,
+    research2_title: research2_title,
+    research3_title: research3_title,
     // education
     education_field: education_field,
     education_qualification: education_qualification,
@@ -82,12 +75,6 @@ async function create(
     education2_fromYear: education2_fromYear,
     education2_toYear: education2_toYear,
 
-    education3_field: education3_field,
-    education3_qualification: education3_qualification,
-    education3_school: education3_school,
-    education3_fromYear: education3_fromYear,
-    education3_toYear: education3_toYear,
-
     // experiences
     experience_title: experience_title,
     experience_company: experience_company,
@@ -99,36 +86,30 @@ async function create(
     experience2_fromYear: experience2_fromYear,
     experience2_toYear: experience2_toYear,
 
-    experience3_title: experience3_title,
-    experience3_company: experience3_company,
-    experience3_fromYear: experience3_fromYear,
-    experience3_toYear: experience3_toYear,
-
+    publications_title: publications_title,
+    conference_title: conference_title,
+    courses_title: courses_title,
+    certificate_title: certificate_title,
+    volunteer_title: volunteer_title,
     // skills
     skill_name: skill_name,
     skill_proficiency: skill_proficiency,
-
-    skill2_name: skill2_name,
-    skill2_proficiency: skill2_proficiency,
-
-    skill3_name: skill3_name,
-    skill3_proficiency: skill3_proficiency,
   };
 
-if (users === null)
+  if (users === null)
     throw `No user exists with such ${id}`
 
-const updateUsers = await userColnew.updateOne({
+  const updateUsers = await userColnew.updateOne({
     _id: ObjectId(id)
-}, {
+  }, {
     $addToSet: {
-        cv: newCv
+      cv: newCv
     }
-});
+  });
 
-if (!updateUsers.matchedCount && !updateUsers.modifiedCount) {
+  if (!updateUsers.matchedCount && !updateUsers.modifiedCount) {
     throw "failed to update cv details"
-}
+  }
   return newCv;
 }
 
@@ -138,8 +119,8 @@ async function build(id) {
   const userColnew = await usersCol();
   const users = await userColnew.findOne({
     _id: ObjectId(id)
-});
-return users;
+  });
+  return users;
 }
 
 module.exports = {
