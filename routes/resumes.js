@@ -79,8 +79,6 @@ router.post("/new", async (req, res) => {
     skill2_name,
     skill2_proficiency,
 
-    skill3_name,
-    skill3_proficiency,
   } = req.body;
 
   try {
@@ -147,8 +145,6 @@ router.post("/new", async (req, res) => {
       skill2_name,
       skill2_proficiency,
 
-      skill3_name,
-      skill3_proficiency
     );
     console.log("resume create",resume);
     res.redirect('/resume/build')

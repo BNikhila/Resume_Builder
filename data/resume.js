@@ -50,9 +50,6 @@ async function create(
 
   skill2_name,
   skill2_proficiency,
-
-  skill3_name,
-  skill3_proficiency
 ) {
 
   const userColnew = await usersCol();
@@ -106,9 +103,6 @@ async function create(
 
     skill2_name: skill2_name,
     skill2_proficiency: skill2_proficiency,
-
-    skill3_name: skill3_name,
-    skill3_proficiency: skill3_proficiency,
   };
 
   if (users === null)
