@@ -533,7 +533,7 @@ ol {
   padding: 0 20px;
   min-width: 100px;
   color: #fff !important;
-  background: rgb(62, 148, 228);
+  background: #007bc8;
   height: 35px;
   border-radius: 5px;
   border: 1px solid #fff !important;
@@ -564,7 +564,7 @@ ol {
   color: #fff;
   box-shadow: 0 3ox 20px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
-  background: rgb(62, 148, 228);
+  background: #007bc8;
   -webkit-transition: all 500ms;
   transition: all 500ms;
 }
@@ -574,7 +574,7 @@ ol {
   color: #fff;
 }
 .dream-btn.green-btn {
-  background: rgb(62, 148, 228);
+  background: #007bc8;
 }
 .more-btn.pink {
   background: #f69;
@@ -1365,7 +1365,7 @@ ol {
 
 .services-block-four .inner-box .text {
   font-size: 14px;
-  color: #888;
+  color: #767676;
   margin-top: 8px;
   margin-bottom: 10px;
 }
@@ -1491,7 +1491,7 @@ ol {
   border-radius: 0;
 }
 .single_cool_fact i {
-  color: #333;
+  color: #007bc8;
   font-size: 120px;
   font-weight: 600;
   opacity: 0.1;
@@ -1504,7 +1504,7 @@ ol {
   font-weight: 900;
 }
 .single_cool_fact h2 {
-  color: #333 !important;
+  color: #007bc8 !important;
 }
 
 /* ##### demo-video Area CSS ##### */
@@ -1599,7 +1599,7 @@ ol {
   color: #fff !important;
 }
 .b-text {
-  color: #333 !important;
+  color: #007bc8 !important;
 }
 
 .service_icon {
@@ -2249,16 +2249,16 @@ h3 a {
   background-size: 75%;
 }
 .free-7 {
-  border: 1px solid #1d88ed;
+  border: 1px solid #0078d5;
   text-align: center;
   padding: 15px;
 }
 .free-7 span {
-  color: #1d88ed;
+  color: #0078d5;
   font-weight: 600;
 }
 .free-7 p {
-  color: #1d88ed !important;
+  color: #0078d5 !important;
   margin-bottom: 0;
 }
 .price_table_text > h5 {
@@ -2280,7 +2280,7 @@ h3 a {
   position: relative;
   top: -5px;
   border-radius: 30px;
-  color: #1d88ed;
+  color: #0078d5;
 }
 .price_table_text > h1 {
   font-size: 40px;
@@ -2575,7 +2575,7 @@ h3 a {
   font-size: 16px;
   z-index: 2;
   line-height: 1.25;
-  color: #1d88ed;
+  color: #0078d5;
   background: #fff;
   border: 2px solid #1d88ed;
   border-radius: 5px;
@@ -2706,7 +2706,7 @@ h3 a {
 .comment_area .comment-content .comment-meta .post-author {
   margin-bottom: 15px;
   display: block;
-  color: #333;
+  color: #007bc8;
 }
 
 .comment_area .comment-content .comment-meta p {
@@ -2975,7 +2975,7 @@ textarea:required {
 }
 
 .page-link {
-  color: #333;
+  color: #007bc8;
   background-color: transparent;
   border: 1px solid #1928e0;
   margin: 0 2px;
@@ -3025,7 +3025,7 @@ textarea:required {
 
 .dont-miss-post-content > a {
   font-size: 16px;
-  color: #333;
+  color: #007bc8;
   display: block;
   margin-top: 15px;
 }
@@ -3634,7 +3634,7 @@ body.light-version {
 }
 
 .light-version p {
-  color: #888;
+  color: #767676;
 }
 
 .light-version h1,
@@ -3772,7 +3772,7 @@ body.light-version {
 }
 .preview-demo {
   margin: 20px 5px;
-  background: #1d88ed;
+  background: #0078d5;
   display: inline-block;
   padding: 15px 20px;
   width: 44%;
@@ -3783,7 +3783,7 @@ body.light-version {
   text-transform: uppercase;
 }
 .preview-demo.v2 {
-  color: #1d88ed;
+  color: #0078d5;
   background: #fff;
   border: 2px solid #1d88ed;
 }
