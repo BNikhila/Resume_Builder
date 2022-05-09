@@ -96,12 +96,13 @@ router.get("/preview", (req, res) => {
   }
 });
 
-router.get("/build", (req, res) => {
+router.get("/build", async(req, res) => {
   const user = req.session.user;
   if (!user) {
     return res.redirect("/users/login");
   }
-  const users = coverletterData.build(user._id);
+  const users = await coverletterData.build(user._id);
+  console.log("coverletter", users)
   if (users) {
     res.render("coverletter_template1", {
       layout: false,

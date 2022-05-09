@@ -128,8 +128,6 @@ if (!updateUsers.matchedCount && !updateUsers.modifiedCount) {
 }
 
 async function build(id) {
-  // Input Validation by calling functions from validation.js
-  console.log("id", id);
   const userColnew = await usersCol();
   const users = await userColnew.findOne({
     _id: ObjectId(id)

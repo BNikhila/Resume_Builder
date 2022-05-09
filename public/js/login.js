@@ -1,11 +1,9 @@
 (function ($) {
-  debugger;
   const username = document.getElementById("lusername");
   const password = document.getElementById("lpassword");
   const error = document.getElementById("errmsg");
   const form = document.getElementById("main_login_form");
   form.addEventListener("submit", function login(event) {
-    debugger;
     event.preventDefault();
     let isValid = true;
     try {

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>{{ users.resume.firstName }} {{ users.resume.lastName }}</title>
+	<title>{{ users.firstname }} {{ users.lastname }}</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
@@ -12,7 +12,7 @@
 	<meta name="description" content="" />
 
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
-	<link rel="stylesheet" type="text/css" href="/public/css/resume.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="/public/css/cv.css" media="all" />
 
 </head>
 <body>
@@ -24,7 +24,7 @@
 			<div class="yui-gc">
 				<div class="yui-u first">
 					<h1>{{ users.firstname }} {{ users.lastname }}</h1>
-					<h2>{{ users.resume.title }}</h2>
+					<h2>{{ users.cv.title }}</h2>
 				</div>
 
 				<div class="yui-u sarah">
@@ -41,14 +41,14 @@
 			<div id="yui-main">
 				<div class="yui-b">
 
-					{{#if users.resume.profile}}
+					{{#if users.cv.profile}}
 						<div class="yui-gf">
 						<div class="yui-u first">
 							<h2>Profile</h2>
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								{{ users.resume.profile }} 
+								{{ users.cv.profile }} 
 							</p>
 						</div>
 					</div>
@@ -60,8 +60,8 @@
 						</div>
 						<div class="yui-u">
 							<ul class="talent">
-								<li>{{ users.resume.skill_name }}</li>
-								<li>{{ users.resume.skill_proficiency}}</li>
+								<li>{{ users.cv.skill_name }}</li>
+								<li>{{ users.cv.skill_proficiency}}</li>
 							</ul>
 						</div>
 					</div><!--// .yui-gf-->
@@ -72,16 +72,16 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.resume.research2_title }}</h2>
+							<h2>{{ users.cv.research2_title }}</h2>
 							</div>
-						{{#if users.resume.research2_title }}
+						{{#if users.cv.research2_title }}
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.research2_title }}</h2>
+							<h2>{{ users.cv.research2_title }}</h2>
 							</div>							
 						{{/if}}
-						{{#if users.resume.research3_title }}
+						{{#if users.cv.research3_title }}
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.research3_title }}</h2>
+							<h2>{{ users.cv.research3_title }}</h2>
 							</div>							
 						{{/if}}
 					</div><!--// .yui-gf -->
@@ -92,10 +92,10 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.resume.conference_title}}</h2>
+							<h2>{{ users.cv.conference_title}}</h2>
 							</div>
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.courses_title}}</h2>
+							<h2>{{ users.cv.courses_title}}</h2>
 							</div>							
 						
 					</div><!--// .yui-gf -->
@@ -128,10 +128,10 @@
 							{{!-- Loop Experiences --}}
 
 							<div class="job">
-								<h2>{{ users.resume.experience_title }}</h2>
-								<h3>{{ users.resume.experience_company }}</h3>
-								<h4>{{ users.resume.experience_fromYear }}-{{ users.resume.experience_toYear }}</h4>
-								<p>{{ users.resume.experience_info }}</p>
+								<h2>{{ users.cv.experience_title }}</h2>
+								<h3>{{ users.cv.experience_company }}</h3>
+								<h4>{{ users.cv.experience_fromYear }}-{{ users.cv.experience_toYear }}</h4>
+								<p>{{ users.cv.experience_info }}</p>
 							</div>
 
 						</div><!--// .yui-u -->
@@ -144,15 +144,15 @@
 						</div>
 						{{!-- Loop Education --}}
 						<div class="yui-u">
-							<h2>{{ users.resume.education_school }}</h2>
-							<h3>{{ users.resume.education_field}} &mdash; <strong>{{ users.resume.education_qualification }}</strong> </h3>
-							<p>From: {{ users.resume.education_fromYear }}-{{ users.resume.education_toYear }}</p>
+							<h2>{{ users.cv.education_school }}</h2>
+							<h3>{{ users.cv.education_field}} &mdash; <strong>{{ users.cv.education_qualification }}</strong> </h3>
+							<p>From: {{ users.cv.education_fromYear }}-{{ users.cv.education_toYear }}</p>
 						</div>
-						{{#if users.resume.education1}}
+						{{#if users.cv.education1}}
 						<div class="yui-u sarah2">
-							<h2>{{ users.resume.education1_school }}</h2>
-							<h3>{{ users.resume.education1_field}} &mdash; <strong>{{ users.resume.education1_qualification }}</strong> </h3>
-							<p>From: {{ users.resume.education1_fromYear }}-{{ users.resume.education1_.toYear }}</p>
+							<h2>{{ users.cv.education1_school }}</h2>
+							<h3>{{ users.cv.education1_field}} &mdash; <strong>{{ users.cv.education1_qualification }}</strong> </h3>
+							<p>From: {{ users.cv.education1_fromYear }}-{{ users.cv.education1_.toYear }}</p>
 						</div>							
 						{{/if}}
 					</div><!--// .yui-gf -->
@@ -163,7 +163,7 @@
 		</div><!--// bd -->
 
 		<div id="ft">
-			<p>{{ users.resume.firstname }} {{ users.resume.lastname }} &mdash; <a href="{{ users.resume.email }}">{{ users.resume.email }}</a> &mdash; {{ users.resume.phonenumber }}</p>
+			<p>{{ users.cv.firstname }} {{ users.cv.lastname }} &mdash; <a href="{{ users.cv.email }}">{{ users.cv.email }}</a> &mdash; {{ users.cv.phonenumber }}</p>
 		</div><!--// footer -->
 
 	</div><!-- // inner -->
@@ -172,7 +172,7 @@
 		<a href="#" class="sarah-a">Download as PDF</a>
 	</div>
 
-	{{!-- <form class="download-btn" action="/resume/build" method="POST">
+	{{!-- <form class="download-btn" action="/cv/build" method="POST">
 		<button class="sarah-a">Download as PDF</button>
 	</form> --}}
 

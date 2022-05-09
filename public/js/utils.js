@@ -32,7 +32,6 @@ function isValidPassword(str) {
 }
 
 function checkUsername(username) {
-  debugger;
   if (username == null || username.length == 0 || username.trim().length == 0) {
     throw "Please enter username";
   }

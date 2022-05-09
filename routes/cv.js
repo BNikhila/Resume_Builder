@@ -166,12 +166,12 @@ router.get("/preview", (req, res) => {
   }
 });
 
-router.get("/build", (req, res) => {
+router.get("/build", async(req, res) => {
   const user = req.session.user;
   if (!user) {
     return res.redirect("/users/login");
   }
-  const users = cvData.build(user._id);
+  const users = await cvData.build(user._id);
   if (users) {
     res.render("cv_template1", {
       layout: false,
