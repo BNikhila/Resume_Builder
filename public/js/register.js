@@ -127,7 +127,7 @@
         error.innerHTML = JSON.parse(
           e.responseText
         ).message.preventXSS();
-        error.show().fadeOut(3000);
+        error.show();
       },
     });
   });

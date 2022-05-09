@@ -8,6 +8,11 @@ const saltRounds = 16;
 
 async function loginUser(username, password) {
   const usercol = await users();
+  if (!username || typeof (username) != "string" || !username.trim())
+    throw "username not Valid"
+  if (!password || typeof (password) != 'string' || password.trim().length === 0 || !password.trim())
+    throw "password not Valid"
+
   const user = await usercol.findOne({ username: username.toLowerCase() });
   if (user == null) {
     const error = new Error("Either username or password is invalid");
@@ -39,6 +44,17 @@ async function create(
   password
 ) {
   const userCol = await users();
+  if (!firstname || typeof (firstname) != "string" || !firstname.trim())
+    throw "username not Valid"
+  if (!lastname || typeof (lastname) != 'string' || lastname.trim().length === 0 || !lastname.trim())
+    throw "lastname not Valid"
+  if (!email || typeof (email) != "string" || !email.trim())
+    throw "email not Valid"
+  if (!username || typeof (username) != 'string' || username.trim().length === 0 || !username.trim())
+    throw "username not Valid"
+  if (!password || typeof (password) != 'string' || password.trim().length === 0 || !password.trim())
+    throw "password not Valid"
+
   const existingUser = await userCol.findOne({ username: username });
   if (existingUser != null) {
     throw `Username is available!`;
