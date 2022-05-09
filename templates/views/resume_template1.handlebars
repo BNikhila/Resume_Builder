@@ -64,18 +64,6 @@
 								<li>{{ resume.skill_name }}</li>
 								<li>{{ resume.skill_proficiency}}</li>
 							</ul>
-							{{#if resume.skill2}}
-								<ul class="talent">
-								<li>{{ resume.skill2_name }}</li>
-								<li>{{ resume.skill2_proficiency}}</li>
-							</ul>
-							{{/if}}
-							{{#if resume.skill3}}
-								<ul class="talent">
-								<li>{{ resume.skill3_name }}</li>
-								<li>{{ resume.skill3_proficiency}}</li>
-							</ul>
-							{{/if}}
 						</div>
 					</div><!--// .yui-gf-->
 
@@ -95,24 +83,6 @@
 								<p>{{ resume.experience_info }}</p>
 							</div>
 
-							{{#if resume.experience2}}
-								<div class="job">
-								<h2>{{ resume.experience2_title }}</h2>
-								<h3>{{ resume.experience2_company }}</h3>
-								<h4>{{ resume.experience2_fromYear }}-{{ resume.experience2_toYear }}</h4>
-								<p>{{ resume.experience_2info }}</p>
-							</div>
-							{{/if}}
-
-							{{#if resume.experience3}}
-								<div class="job last">
-								<h2>{{ resume.experience3_title }}</h2>
-								<h3>{{ resume.experience3_company }}</h3>
-								<h4>{{ resume.experience3_fromYear }}-{{ resume.experience3_toYear }}</h4>
-								<p>{{ resume.experience_3info }}</p>
-							</div>
-							{{/if}}
-
 						</div><!--// .yui-u -->
 					</div><!--// .yui-gf -->
 
@@ -127,20 +97,6 @@
 							<h3>{{ resume.education_field}} &mdash; <strong>{{ resume.education_qualification }}</strong> </h3>
 							<p>From: {{ resume.education_fromYear }}-{{ resume.education_toYear }}</p>
 						</div>
-						{{#if resume.education2}}
-						<div class="yui-u sarah2">
-							<h2>{{ resume.education2_school }}</h2>
-							<h3>{{ resume.education2_field}} &mdash; <strong>{{ resume.education2_qualification }}</strong> </h3>
-							<p>From: {{ resume.education2_fromYear }}-{{ resume.education2_toYear }}</p>
-						</div>							
-						{{/if}}
-						{{#if resume.education3}}
-						<div class="yui-u sarah2">
-							<h2>{{ resume.education3_school }}</h2>
-							<h3>{{ resume.education3_field}} &mdash; <strong>{{ resume.education3_qualification }}</strong> </h3>
-							<p>From: {{ resume.education3_fromYear }}-{{resume.education3_toYear }}</p>
-						</div>							
-						{{/if}}
 					</div><!--// .yui-gf -->
 
 
